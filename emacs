@@ -93,6 +93,12 @@
                             (setq show-trailing-whitespace nil)))
 
 ;;--------------------------------------------------------------------
+;; Python
+(add-to-list 'load-path "~/.emacs.d/python-mode") 
+(setq py-install-directory "~/.emacs.d/python-mode")
+(require 'python-mode)
+
+;;--------------------------------------------------------------------
 ;; Auto-complete
 (add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-20130724.1750") 
 (require 'auto-complete-config)
