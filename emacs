@@ -19,7 +19,7 @@
 ;;                   2.4 Web
 ;;                   3. Custom set
 
-;; To generate the table of contents : `cat .emacs | grep ";;   " | sort -u`
+;; To generate the table of contents : `cat .emacs | grep "^;;   " | sort -u`
 
 
 
