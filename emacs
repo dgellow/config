@@ -6,6 +6,22 @@
 
 
 
+;;                   Table of contents
+;;                   0. Meta
+;;                   1. Editor
+;;                   1.1 Theme 
+;;                   1.2 Navigation
+;;                   1.3 Fullscreen mode
+;;                   2. Programming
+;;                   2.1 Lisp
+;;                   2.2 Ruby
+;;                   2.3 Python
+;;                   2.4 Web
+;;                   3. Custom set
+
+;; To generate the table of contents : `cat .emacs || grep ";;  "`
+
+
 
 ;;————————————————————————————————————————————————————————————————————
 ;;                   0. Meta
