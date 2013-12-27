@@ -1,0 +1,7 @@
+[user]
+	name = dgellow
+	email = samuel.elborai@gmail.com
+[push]
+	default = simple
+[core]
+excludesfile = /home/sam/.gitignore_global

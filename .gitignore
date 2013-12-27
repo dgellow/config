@@ -1,0 +1,4 @@
+# Emacs
+/emacs.d/*
+!/emacs.d/themes/
+!/emacs.d/functions/
