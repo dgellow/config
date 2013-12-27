@@ -1,8 +1,16 @@
-(require 'cl)
-(require 'misc)
+;; File: .emacs
+;; Creation: 2013
+;; Author: Samuel El-Borai aka dgellow <samuel.elborai@gmail.com>
+;; Website: https://github.com/dgellow/home-bootstrapping
+;; Description: My personal emacs configuration
 
-;; Custom functions
-(add-to-list 'load-path "~/.emacs.d/functions/")
+
+
+
+;;————————————————————————————————————————————————————————————————————
+;;                   0. Meta
+
+(require 'cl)
 
 ;; Packages repositories
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -12,15 +20,30 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-;;--------------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/elpa")
+
+
+
+
+;;————————————————————————————————————————————————————————————————————
+;;                   1. Editor
+
 ;; Backup files
 (setq backup-directory-alist `(("." . "~/.emacs.saves")))
 
 ;;--------------------------------------------------------------------
+;; Save minibuffer history
+(savehist-mode 1)
+
+;;--------------------------------------------------------------------
 ;; Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-
 (setq cursor-type '(bar . 1))
+
+(require 'powerline)
+(powerline-default-theme)
+
+(require 'rainbow-delimiters)
 
 ;;--------------------------------------------------------------------
 ;; Ido
@@ -36,95 +59,12 @@
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
 
-;;--------------------------------------------------------------------
-;; Slime
-(setq inferior-lisp-program "/usr/bin/sbcl")
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
-(require 'slime)
-(slime-setup '(slime-fancy))
+;; Scroll up & down without moving the cursor
 
-;;--------------------------------------------------------------------
-;; Rinari
-(require 'rinari)
+(global-set-key [(meta p)] 'scroll-up-line)
+(global-set-key [(meta n)] 'scroll-down-line)
 
-;;--------------------------------------------------------------------
-;; HAML
-(require 'haml-mode)
 
-;;--------------------------------------------------------------------
-;; CoffeScript
-(defun coffee-custom ()
-  "coffee-mode-hook"
-  (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer))
-
-(add-hook 'coffee-mode-hook '(lambda () (coffee-custom)))
-
-;;--------------------------------------------------------------------
-;; Save minibuffer history
-(savehist-mode 1)
-
-;;--------------------------------------------------------------------
-;; Gmail configuration
-(setq smtpmail-stream-type 'ssl)
-(setq smtpmail-smtp-server "smtp.gmail.com")
-(setq smtpmail-smtp-service 465)
-
-;;--------------------------------------------------------------------
-;; Ruby
-
-;; automatic indentation
-(add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
-
-;; ruby completion, navigation and documentation lookup
-(add-hook 'ruby-mode-hook 'robe-mode)
-
-;; ruby repl in an emacs buffer
-(require 'inf-ruby)
-
-;; to insert text automatically after:
-;; - a correctly indented "end" when you write "class" or "def".
-;; - the right parenthesis when you write a left parenthesis.
-;; - an end-quote when you enter a quote.
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
-
-;; disable show-trailing-whitespace
-(add-hook 'ruby-mode-hook (lambda ()
-                            (setq show-trailing-whitespace nil)))
-
-;;--------------------------------------------------------------------
-;; Python
-(add-to-list 'load-path "~/.emacs.d/python-mode") 
-(setq py-install-directory "~/.emacs.d/python-mode")
-(require 'python-mode)
-
-;;--------------------------------------------------------------------
-;; Auto-complete
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-20130724.1750") 
-(require 'auto-complete-config)
-(ac-config-default)
-
-;;--------------------------------------------------------------------
-;; Emacs Multimedia System
-(add-to-list 'load-path "~/.emacs.d/emms/lisp")
-(require 'emms-setup)
-(emms-standard)
-(emms-default-players)
-
-;;--------------------------------------------------------------------
-;; Powerline
-;;(add-to-list 'load-path "~/.emacs.d/vendor/emacs-powerline")
-(require 'powerline)
-(powerline-default-theme)
-;; (setq powerline-arriow-shape 'arrow)   ;; default
-;; (setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
-;; (setq powerline-arrow-shape 'arrow14) ;; best for small fonts
-
-;;--------------------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/elpa")
-(require 'rainbow-delimiters)
-
-;;--------------------------------------------------------------------
 ;; Fullscreen mode
 (defun toggle-minimal-mode (fs)
   (interactive "P")
@@ -149,8 +89,6 @@
 
 (global-set-key [f11] 'toggle-minimal-mode)
 
-
-;;--------------------------------------------------------------------
 ;; Smooth scrolling
 ;; Scroll one line at a time (less "jumpy" than defaults)
 (progn
@@ -159,13 +97,78 @@
 	(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 	(setq scroll-step 1)) ;; keyboard scroll one line at a time
 
-;;--------------------------------------------------------------------
-;; Scroll up & down without moving the cursor
 
-(global-set-key [(meta p)] 'scroll-up-line)
-(global-set-key [(meta n)] 'scroll-down-line)
+
+
+;;————————————————————————————————————————————————————————————————————
+;;                   2. Programming
+
+
+(add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-20130724.1750") 
+(require 'auto-complete-config)
+(ac-config-default)
+
 
 ;;--------------------------------------------------------------------
+;;                   2.1 Lisp
+
+;; Slime
+(setq inferior-lisp-program "/usr/bin/sbcl")
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
+(require 'slime)
+(slime-setup '(slime-fancy))
+
+
+;;--------------------------------------------------------------------
+;;                   2.2 Ruby
+
+;; automatic indentation
+(add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
+
+;; ruby completion, navigation and documentation lookup
+(add-hook 'ruby-mode-hook 'robe-mode)
+
+;; ruby repl in an emacs buffer
+(require 'inf-ruby)
+
+;; to insert text automatically after:
+;; - a correctly indented "end" when you write "class" or "def".
+;; - the right parenthesis when you write a left parenthesis.
+;; - an end-quote when you enter a quote.
+(require 'ruby-electric)
+(add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
+
+;; disable show-trailing-whitespace
+(add-hook 'ruby-mode-hook (lambda ()
+                            (setq show-trailing-whitespace nil)))
+
+
+;;--------------------------------------------------------------------
+;;                   2.3 Python
+
+(add-to-list 'load-path "~/.emacs.d/python-mode") 
+(setq py-install-directory "~/.emacs.d/python-mode")
+(require 'python-mode)
+
+
+;;--------------------------------------------------------------------
+;;                   2.4 Web
+
+;; HAML
+(require 'haml-mode)
+
+;; CoffeScript
+(defun coffee-custom ()
+  "coffee-mode-hook"
+  (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer))
+
+(add-hook 'coffee-mode-hook '(lambda () (coffee-custom)))
+
+
+
+
+;;————————————————————————————————————————————————————————————————————
+;;                   3. Custom set
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -192,4 +195,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#202020" :foreground "#cacaca" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "unknown" :family "Droid Sans Mono")))))
-
