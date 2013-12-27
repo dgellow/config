@@ -13,6 +13,10 @@
 (package-initialize)
 
 ;;--------------------------------------------------------------------
+;; Backup files
+(setq backup-directory-alist `(("." . "~/.emacs.saves")))
+
+;;--------------------------------------------------------------------
 ;; Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
