@@ -13,10 +13,6 @@
 (package-initialize)
 
 ;;--------------------------------------------------------------------
-;; Floobits
-(load "~/.emacs.d/floobits/floobits.el")
-
-;;--------------------------------------------------------------------
 ;; Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
