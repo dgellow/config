@@ -31,12 +31,25 @@
 ;; Backup files
 (setq backup-directory-alist `(("." . "~/.emacs.saves")))
 
-;;--------------------------------------------------------------------
 ;; Save minibuffer history
 (savehist-mode 1)
 
+;; Scroll up & down without moving the cursor
+(global-set-key [(meta p)] 'scroll-up-line)
+(global-set-key [(meta n)] 'scroll-down-line)
+
+;; Smooth scrolling
+;; Scroll one line at a time (less "jumpy" than defaults)
+(progn
+	(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+	(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+	(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+	(setq scroll-step 1)) ;; keyboard scroll one line at a time
+
+
 ;;--------------------------------------------------------------------
-;; Theme
+;;                   1.1 Theme 
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (setq cursor-type '(bar . 1))
 
@@ -45,27 +58,24 @@
 
 (require 'rainbow-delimiters)
 
+
 ;;--------------------------------------------------------------------
-;; Ido
+;;                   1.2 Navigation
+
 (require 'ido)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode t)
 
-;;--------------------------------------------------------------------
-;; Flx-ido
 (require 'flx-ido)
 (flx-ido-mode t)
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
 
-;; Scroll up & down without moving the cursor
 
-(global-set-key [(meta p)] 'scroll-up-line)
-(global-set-key [(meta n)] 'scroll-down-line)
+;;--------------------------------------------------------------------
+;;                   1.3 Fullscreen mode
 
-
-;; Fullscreen mode
 (defun toggle-minimal-mode (fs)
   (interactive "P")
   (defun fullscreen-margins nil
@@ -88,14 +98,6 @@
 	   (set-frame-width nil (assoc-default 'width default-frame-alist)))))
 
 (global-set-key [f11] 'toggle-minimal-mode)
-
-;; Smooth scrolling
-;; Scroll one line at a time (less "jumpy" than defaults)
-(progn
-	(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-	(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-	(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-	(setq scroll-step 1)) ;; keyboard scroll one line at a time
 
 
 
