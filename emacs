@@ -62,6 +62,9 @@
 	(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 	(setq scroll-step 1)) ;; keyboard scroll one line at a time
 
+;; MultiTerm mode
+(require 'multi-term)
+
 
 ;;--------------------------------------------------------------------
 ;;                   1.1 Theme 
