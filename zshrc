@@ -25,9 +25,3 @@ stty stop ''
  
 # RVM bash completion
 [[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"
-
-
-# Virtualenvwrapper (Python)
-###########################
-# Load virtualenvwrapper.sh
-source /usr/bin/virtualenvwrapper.sh
