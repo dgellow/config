@@ -199,6 +199,8 @@
  '(blink-cursor-mode nil)
  '(custom-enabled-themes (quote (faceless)))
  '(custom-safe-themes (quote ("34d26daceb2ca8e1cdd00fa7b96a6e9161f74d992b701454075898a7a237d4ef" default)))
+ '(electric-indent-mode t)
+ '(electric-pair-mode t)
  '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(global-rainbow-delimiters-mode t)
  '(indent-tabs-mode nil)
