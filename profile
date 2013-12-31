@@ -1,3 +1,8 @@
+# 256 colors terminals
+export TERM=xterm-256color
+
+
+
 # Heroku
 export PATH=/usr/local/heroku/bin:$PATH
 
