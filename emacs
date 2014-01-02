@@ -183,7 +183,7 @@
 
 
 ;;————————————————————————————————————————————————————————————————————
-;;                   3. Custom set
+;;                   3. Custom sets
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -200,9 +200,7 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(linum-format " %7i ")
- '(send-mail-function (quote smtpmail-send-it))
- '(speedbar-show-unknown-files t)
- '(sr-speedbar-right-side nil)
+ '(projectile-global-mode t)
  '(tab-width 2)
  '(tool-bar-mode nil))
 
