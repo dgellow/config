@@ -49,7 +49,7 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 
 ##————————————————————————————————————————————————————————————————————
-##                   2.1 Python
+##                   2.2 Python
 
 # Virtualenv (Python)
 export WORKON_HOME=$HOME/.virtualenvs
