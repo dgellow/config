@@ -1,4 +1,5 @@
 # Emacs
 /emacs.d/*
+!/emacs.d/Cask
 !/emacs.d/themes/
 !/emacs.d/functions/
