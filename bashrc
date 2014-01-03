@@ -51,3 +51,14 @@ function composition {
 }
  
 PS1="\n \e[1;31mREC °\e[0m: \D{%d-%m-%y %H:%M:%S} \u/\e[4m\h\e[0m \w\$(composition)\e[0m\n -> "
+
+
+##————————————————————————————————————————————————————————————————————
+##                   2. Programming
+
+
+##————————————————————————————————————————————————————————————————————
+##                   2.1 Ruby
+
+# RVM bash completion
+[[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"

@@ -44,9 +44,6 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# RVM bash completion
-[[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"
-
 
 ##————————————————————————————————————————————————————————————————————
 ##                   2.2 Python
