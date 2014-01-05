@@ -11,6 +11,7 @@
 alias q='exit'
 alias :q='exit'
 alias visudo='sudo -E visudo'
+alias cdgit='cd $(git rev-parse --show-cdup)'
 
 # Main editor
 export EDITOR="emacs -nw"
