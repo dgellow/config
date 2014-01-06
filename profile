@@ -29,6 +29,9 @@ stty stop ''
 # Heroku
 export PATH=/usr/local/heroku/bin:$PATH
 
+# Cask (emacs plugin management)
+export PATH=$HOME/.cask/bin:$PATH
+
 
 ##————————————————————————————————————————————————————————————————————
 ##                   2. Programming
