@@ -40,3 +40,4 @@
 (depends-on "ruby-compilation")
 (depends-on "s")
 (depends-on "web-mode")
+(depends-on "yasnippet")
