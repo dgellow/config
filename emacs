@@ -192,7 +192,7 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(custom-enabled-themes (quote (faceless)))
- '(custom-safe-themes (quote ("34d26daceb2ca8e1cdd00fa7b96a6e9161f74d992b701454075898a7a237d4ef" default)))
+ '(custom-safe-themes (quote ("eb048b4126bb42ea1a2207afcafa43937764b39e83fe30b406514e9abd7834a5" "34d26daceb2ca8e1cdd00fa7b96a6e9161f74d992b701454075898a7a237d4ef" default)))
  '(electric-indent-mode t)
  '(electric-pair-mode t)
  '(fringe-mode (quote (nil . 0)) nil (fringe))

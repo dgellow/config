@@ -1,4 +1,4 @@
-(deftheme gray-octopus
+(deftheme octopussy
   "Author: Samuel El-Borai aka dgellow
    Date: January 2 2014
    Url: https://github.com/dgellow/home-bootstrapping/tree/master/emacs.d/themes
@@ -6,12 +6,11 @@
    Theme based on kkga's spacegray https://github.com/kkga/spacegray")
 
 (custom-theme-set-variables
- 'gray-octopus
+ 'octopussy
  '(linum-format " %7i "))
 
-
 (custom-theme-set-faces
- 'gray-octopus
+ 'octopussy
 
  '(default ((t (:foreground "#C0C5CE" :background "#2B303B"))))
  '(region ((t (:background "#705B44"))))
@@ -135,4 +134,5 @@
  '(rainbow-delimiters-depth-9-face ((t (:foreground "blue violet"))))
  '(rainbow-delimiters-unmatched-face ((t (:foreground "orange red")))))
 
-(provide-theme 'gray-octopus)
+(provide-theme 'octopussy)
+
