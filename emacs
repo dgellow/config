@@ -48,6 +48,10 @@
 (global-set-key [(meta p)] 'scroll-up-line)
 (global-set-key [(meta n)] 'scroll-down-line)
 
+;; Move cursor to the top & bottom of the current window body
+(global-set-key [(meta P)] '(lambda ()(interactive)(goto-char (window-start))))
+(global-set-key [(meta N)] '(lambda ()(interactive)(goto-char (- (window-end)1))))
+
 ;; Smooth scrolling
 ;; Scroll one line at a time (less "jumpy" than defaults)
 (progn
