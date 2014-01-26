@@ -207,6 +207,7 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(linum-format " %7i ")
+ '(menu-bar-mode nil)
  '(projectile-global-mode t)
  '(tab-width 2)
  '(tool-bar-mode nil))
