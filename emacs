@@ -194,10 +194,6 @@
     '(faceless)))
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(custom-enabled-themes (startup-theme))
  '(custom-safe-themes
@@ -206,7 +202,7 @@
      default))
  '(electric-indent-mode t)
  '(electric-pair-mode t)
- '(fringe-mode (quote (nil . 0)) nil (fringe))
+ '(fringe-mode '(nil . 0) nil (fringe))
  '(global-rainbow-delimiters-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
@@ -215,6 +211,7 @@
  '(tab-width 2)
  '(tool-bar-mode nil))
 
+;; Font
 (custom-set-faces
  '(default
     ((t (:slant normal
