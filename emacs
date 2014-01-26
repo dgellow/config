@@ -122,8 +122,6 @@
 ;;————————————————————————————————————————————————————————————————————
 ;;                   2. Programming
 
-
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-20130724.1750") 
 (require 'auto-complete-config)
 (ac-config-default)
 
@@ -141,21 +139,8 @@
 ;;--------------------------------------------------------------------
 ;;                   2.2 Ruby
 
-;; automatic indentation
-(add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
-
 ;; ruby completion, navigation and documentation lookup
 (add-hook 'ruby-mode-hook 'robe-mode)
-
-;; ruby repl in an emacs buffer
-(require 'inf-ruby)
-
-;; to insert text automatically after:
-;; - a correctly indented "end" when you write "class" or "def".
-;; - the right parenthesis when you write a left parenthesis.
-;; - an end-quote when you enter a quote.
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
 
 ;; disable show-trailing-whitespace
 (add-hook 'ruby-mode-hook (lambda ()
