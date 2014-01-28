@@ -125,6 +125,26 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
+;; Symbol highlighting
+(defun  highlight-symbol-at-point ()
+  "Highlight the SYMBOL at the cursor position."
+  (interactive)
+  (highlight-at-point 'symbol))
+
+(defun highlight-at-point (THING)
+  "Highlight the THING at the current cursor position."
+  (let ((bounds (bounds-of-thing-at-point 'symbol)))
+    (setq thing-as-str (buffer-substring-no-properties
+                        (car bounds) (cdr bounds)))
+    (add-to-history 'regexp-history thing-as-str)
+    (hi-lock-face-buffer (regexp-quote thing-as-str) 'hi-pink)))
+
+(defun highlight-reset ()
+  "Undo the whole regexp highlight history."
+  (interactive)
+  (mapc (lambda (r)(hi-lock-unface-buffer r))
+        regexp-history))
+
 
 ;;--------------------------------------------------------------------
 ;;                   2.1 Lisp
