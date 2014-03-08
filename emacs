@@ -125,6 +125,9 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
+;; Delete trailing whitespaces on save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Symbol highlighting
 (defun  highlight-symbol-at-point ()
   "Highlight the SYMBOL at the cursor position."
