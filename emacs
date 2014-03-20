@@ -9,7 +9,7 @@
 ;;                   Table of contents
 ;;                   0. Meta
 ;;                   1. Editor
-;;                   1.1 Theme 
+;;                   1.1 Theme
 ;;                   1.2 Navigation
 ;;                   1.3 Fullscreen mode
 ;;                   2. Programming
@@ -65,7 +65,7 @@
 
 
 ;;--------------------------------------------------------------------
-;;                   1.1 Theme 
+;;                   1.1 Theme
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (setq cursor-type '(bar . 1))
@@ -180,7 +180,7 @@
 ;;--------------------------------------------------------------------
 ;;                   2.3 Python
 
-(add-to-list 'load-path "~/.emacs.d/python-mode") 
+(add-to-list 'load-path "~/.emacs.d/python-mode")
 (setq py-install-directory "~/.emacs.d/python-mode")
 (require 'python-mode)
 
