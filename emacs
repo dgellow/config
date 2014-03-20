@@ -123,7 +123,13 @@
 ;;                   2. Programming
 
 (require 'auto-complete-config)
-(ac-config-default)
+;; Use dictionaries by default
+(setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
+(global-auto-complete-mode t)
+;; Start auto-completion after 1 char of a word
+(setq ac-auto-start 1)
+;; Ignore case
+(setq ac-ignore-case nil)
 
 ;; Delete trailing whitespaces on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
