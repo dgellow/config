@@ -56,3 +56,10 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
+
+
+##————————————————————————————————————————————————————————————————————
+##                   2.3 Node
+
+# NPM, global install in user directory
+export PATH=$HOME/.local/bin:$PATH
