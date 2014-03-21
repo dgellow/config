@@ -1,0 +1,3 @@
+root =    /home/sam/.local/lib/node_modules
+binroot = /home/sam/.local/bin
+manroot = /home/sam/.local/share/man
