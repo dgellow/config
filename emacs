@@ -35,6 +35,8 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
+(require 'use-package)
+
 
 ;;————————————————————————————————————————————————————————————————————
 ;;                   1. Editor
@@ -62,7 +64,7 @@
 	(setq scroll-step 1)) ;; keyboard scroll one line at a time
 
 ;; MultiTerm mode
-(require 'multi-term)
+(use-package multi-term)
 
 
 ;;--------------------------------------------------------------------
@@ -71,24 +73,25 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (setq cursor-type '(bar . 1))
 
-(require 'powerline)
-(powerline-default-theme)
+(use-package powerline
+  :config (powerline-default-theme))
 
-(require 'rainbow-delimiters)
+(use-package rainbow-delimiters)
 
 
 ;;--------------------------------------------------------------------
 ;;                   1.2 Navigation
 
-(require 'ido)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode t)
+(use-package ido
+  :init (ido-mode t)
+  :config (progn
+            (setq ido-enable-flex-matching t)
+            (setq ido-everywhere t)))
 
-(require 'flx-ido)
-(flx-ido-mode t)
-;; disable ido faces to see flx highlights.
-(setq ido-use-faces nil)
+(use-package flx-ido
+  :init (flx-ido-mode t)
+  ;; disable ido faces to see flx highlights.
+  :config (setq ido-use-faces nil))
 
 
 ;;--------------------------------------------------------------------
@@ -123,18 +126,19 @@
 ;;————————————————————————————————————————————————————————————————————
 ;;                   2. Programming
 
-(require 'auto-complete)
-(require 'auto-complete-config)
-;; Use dictionaries by default
-(setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
-(global-auto-complete-mode)
-;; Start auto-completion after 1 char of a word
-(setq ac-auto-start 1)
-;; Ignore case
-(setq ac-ignore-case nil)
-
 ;; Delete trailing whitespaces on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(use-package auto-complete
+  :init (global-auto-complete-mode t)
+  :config (progn
+            ;; Use dictionaries by default
+            (setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
+            ;; Start auto-completion after 1 char of a word
+            (setq ac-auto-start 1)
+            ;; Ignore case
+            (setq ac-ignore-case nil)))
+
 
 ;; Symbol highlighting
 (defun  highlight-symbol-at-point ()
@@ -164,8 +168,8 @@
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/bin/ccl")
 ;;(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
-(require 'slime)
-(slime-setup '(slime-fancy))
+(use-package slime
+  :config (slime-setup '(slime-fancy)))
 
 
 ;;--------------------------------------------------------------------
@@ -184,23 +188,24 @@
 
 (add-to-list 'load-path "~/.emacs.d/python-mode")
 (setq py-install-directory "~/.emacs.d/python-mode")
-(require 'python-mode)
+(use-package python-mode)
 
 
 ;;--------------------------------------------------------------------
 ;;                   2.4 Clojure
 
-(require 'ac-nrepl)
-(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-(add-hook 'clojure-nrepl-mode-hook 'ac-nrepl-setup)
+(use-package ac-nrepl
+  :config (progn
+            (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+            (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+            (add-hook 'clojure-nrepl-mode-hook 'ac-nrepl-setup)))
 
 
 ;;--------------------------------------------------------------------
 ;;                   2.5 Web
 
 ;; HAML
-(require 'haml-mode)
+(use-package haml-mode)
 
 ;; CoffeScript
 (defun coffee-custom ()
