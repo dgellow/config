@@ -3,6 +3,7 @@
 (source marmalade)
 
 (depends-on "auto-complete")
+(depends-on "ac-nrepl")
 (depends-on "cask")
 (depends-on "cider")
 (depends-on "clojure-mode")

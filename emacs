@@ -16,8 +16,11 @@
 ;;                   2.1 Lisp
 ;;                   2.2 Ruby
 ;;                   2.3 Python
-;;                   2.4 Web
-;;                   3. Custom set
+;;                   2.4 Clojure
+;;                   2.5 Web
+;;                   3. Custom sets
+;;                   Table of contents
+
 
 ;; To generate the table of contents : `cat .emacs | grep "^;;   " | sort -u`
 
@@ -31,8 +34,6 @@
 ;; Package management
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
-
-
 
 
 ;;————————————————————————————————————————————————————————————————————
@@ -122,10 +123,11 @@
 ;;————————————————————————————————————————————————————————————————————
 ;;                   2. Programming
 
+(require 'auto-complete)
 (require 'auto-complete-config)
 ;; Use dictionaries by default
 (setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
-(global-auto-complete-mode t)
+(global-auto-complete-mode)
 ;; Start auto-completion after 1 char of a word
 (setq ac-auto-start 1)
 ;; Ignore case
@@ -186,7 +188,16 @@
 
 
 ;;--------------------------------------------------------------------
-;;                   2.4 Web
+;;                   2.4 Clojure
+
+(require 'ac-nrepl)
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(add-hook 'clojure-nrepl-mode-hook 'ac-nrepl-setup)
+
+
+;;--------------------------------------------------------------------
+;;                   2.5 Web
 
 ;; HAML
 (require 'haml-mode)
