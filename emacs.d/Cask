@@ -19,6 +19,7 @@
 (depends-on "git-rebase-mode")
 (depends-on "haml-mode")
 (depends-on "highlight")
+(depends-on "impatient-mode")
 (depends-on "inf-ruby")
 (depends-on "inflections")
 (depends-on "ipython")
