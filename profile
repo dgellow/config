@@ -40,7 +40,7 @@ export PATH=$HOME/.cask/bin:$PATH
 ##————————————————————————————————————————————————————————————————————
 ##                   2.1 Ruby
 
-export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
+export PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
 
 # RVM
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
