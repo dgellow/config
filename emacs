@@ -67,6 +67,9 @@
 (use-package multi-term)
 
 
+;; Flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 ;;--------------------------------------------------------------------
 ;;                   1.1 Theme
 
