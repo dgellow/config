@@ -2,4 +2,4 @@
 /emacs.d/*
 !/emacs.d/Cask
 !/emacs.d/themes/
-!/emacs.d/functions/
+!/emacs.d/utils/
