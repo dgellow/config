@@ -3,3 +3,6 @@
 !/emacs.d/Cask
 !/emacs.d/themes/
 !/emacs.d/utils/
+!/emacs.d/snippets/
+!/emacs.d/modules/
+!/emacs.d/vendor/
