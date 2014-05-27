@@ -1,50 +1,38 @@
-(defun emacs-config ()
-  "Open .emacs file."
-  (interactive)
-  (find-file (concatenate 'string (getenv "HOME") "/.emacs")))
+;;; misc.el --- Miscellaneous functions.
+;;
+;; Copyright (c) 2014 Samuel El-Borai
+;;
+;; Author: Samuel El-Borai <samuel.elborai@gmail.com>
+;; URL: https://github.com/dgellow/home-bootstrapping/
+;; Version: 1.0.0
+;; Keywords: convenience
 
-;; (defun toggle-night-color-theme ()
-;;   "Switch to/from night color scheme.
+;; This file is not port of GNU Emacs.
 
-;; Also switch colors for the `rainbow-delimiter-mode'."
-;;   (interactive)
-;;   (let ((day-theme 'dichromacy)
-;; 	(night-theme 'bubbleberry))
-;;     (if (eq (frame-parameter (next-frame) 'background-mode) 'dark)
-;; 	(progn (load-theme day-theme)
-;; 	       (load-theme-rainbow-delimiter :grey-tone)) 
-;;       (progn (load-theme night-theme)
-;; 	     (load-theme-rainbow-delimiter :flashy)))))
+;;; Commentary:
+
+;;; License:
+
+;; Permission is hereby granted, free of charge, to any person obtaining a copy
+;; of this software and associated documentation files (the "Software"), to deal
+;; in the Software without restriction, including without limitation the rights
+;; to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+;; copies of the Software, and to permit persons to whom the Software is
+;; furnished to do so, subject to the following conditions:
+;;
+;; The above copyright notice and this permission notice shall be included in
+;; all copies or substantial portions of the Software.
+;;
+;; THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+;; IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+;; FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+;; AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+;; LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+;; OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+;; SOFTWARE.
+
+;;; Code:
 
 
-(defun test (&rest yada)
-  (progn (prin1 yada))
-	 (type-of yada))
-
-;; (apply 'test (cdr (assoc :flashy list-themes-rainbow-delimiter)))
-
-;; (defun load-theme-rainbow-delimiter (theme)
-;; 	(interactive "Enter a name (flashy, grey-tone) : ")
-;;   (apply 'custom-set-faces (cdr (assoc theme list-themes-rainbow-delimiter))))
-
-;; (setq list-themes-rainbow-delimiter '((:flashy  
-;; 				       (rainbow-delimiters-depth-2-face ((t (:foreground "green"))))
-;; 				       '(rainbow-delimiters-depth-3-face ((t (:foreground "cyan"))))
-;; 				       '(rainbow-delimiters-depth-4-face ((t (:foreground "deep sky blue"))))
-;; 				       '(rainbow-delimiters-depth-5-face ((t (:foreground "blue"))))
-;; 				       '(rainbow-delimiters-depth-6-face ((t (:foreground "magenta"))))
-;; 				       '(rainbow-delimiters-depth-7-face ((t (:foreground "dark violet"))))
-;; 				       '(rainbow-delimiters-depth-8-face ((t (:foreground "cyan"))))
-;; 				       '(rainbow-delimiters-depth-9-face ((t (:foreground "blue violet"))))
-;; 				       '(rainbow-delimiters-unmatched-face ((t (:foreground "orange red")))))
-				     
-;; 				      (:grey-tone
-;; 				       '(rainbow-delimiters-depth-2-face ((t (:foreground "blue"))))
-;; 				       '(rainbow-delimiters-depth-3-face ((t (:foreground "blue"))))
-;; 				       '(rainbow-delimiters-depth-4-face ((t (:foreground "bluee"))))
-;; 				       '(rainbow-delimiters-depth-5-face ((t (:foreground "blue"))))
-;; 				       '(rainbow-delimiters-depth-6-face ((t (:foreground "blue"))))
-;; 				       '(rainbow-delimiters-depth-7-face ((t (:foreground "blue"))))
-;; 				       '(rainbow-delimiters-depth-8-face ((t (:foreground "blue"))))
-;; 				       '(rainbow-delimiters-depth-9-face ((t (:foreground "blue"))))
-;; 				       '(rainbow-delimiters-unmatched-face ((t (:foreground "blue")))))))
+(provide 'misc)
+;;; misc.el ends here
