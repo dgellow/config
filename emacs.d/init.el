@@ -61,6 +61,8 @@ If `load-file-name' is empty, use the value of `current-buffer'."
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
+(require 'use-package)
+
 ;; Set paths
 (defvar dg-utils-dir
   (expand-file-name "utils" user-emacs-directory)

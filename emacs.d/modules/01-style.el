@@ -76,5 +76,9 @@
 ;; Do not use a blinking cursor
 (blink-cursor-mode -1)
 
+;; Prettier mode-line
+(use-package powerline
+  :config (powerline-default-theme))
+
 (provide 'style)
 ;;; style.el ends here
