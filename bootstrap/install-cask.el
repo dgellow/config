@@ -83,10 +83,10 @@ Clone from `dg-cask-git-repo' to `dg-cask-dir'."
     (cond
      ((not linux-p) (dg-message msg-not-linux))
      ((dg-cask-linux-installed-p) (dg-message msg-file-exists))
-     ;; ( t (dg-cask-install-from-git)
-     ;;     (dg-cask-bootstrap)
-     ;;     (dg-message msg-success)))))
-     )))
+     ( t (dg-cask-install-from-git)
+         (dg-cask-bootstrap)
+         (dg-message msg-success)))))
+
 
 
 ;; Install from homebrew
