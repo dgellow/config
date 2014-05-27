@@ -53,9 +53,6 @@ If `load-file-name' is empty, use the value of `current-buffer'."
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;; Do not show margins
-(fringe-mode '(0 . 0))
-
 ;; No splash screen
 (setq inhibit-startup-screen t)
 

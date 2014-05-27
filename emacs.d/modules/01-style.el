@@ -44,6 +44,9 @@
 ;; Highlight matching parentheses
 (show-paren-mode 1)
 
+;; Minimize margins
+(fringe-mode '(1 . 0))
+
 ;; Prettier mode-line
 (use-package powerline
   :config (powerline-default-theme))

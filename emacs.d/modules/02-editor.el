@@ -35,6 +35,9 @@
 ;; Backup files
 (setq backup-directory-alist `(("." . "~/.emacs.saves")))
 
+;; Tab width
+(setq tab-width 2)
+
 ;; Indent on C-m
 (electric-indent-mode t)
 
@@ -52,6 +55,18 @@
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
+
+;; Do not use tabs
+(setq-default indent-tabs-mode nil)
+
+;; Better clipboard
+(setq x-select-enable-clipboard t
+      x-select-enable-primary t
+      save-interprogram-paste-before-kill t
+      mouse-yank-at-point t)
+
+;; Extend search paths for apropos
+(setq apropos-do-all t)
 
 ;; Load auto-complete
 (use-package auto-complete
