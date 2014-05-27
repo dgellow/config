@@ -1,4 +1,4 @@
-;;; editor.el --- dgellow's editor configuration.
+;;; ruby.el --- Miscellaneous functions.
 ;;
 ;; Copyright (c) 2014 Samuel El-Borai
 ;;
@@ -32,39 +32,30 @@
 ;; SOFTWARE.
 
 ;;; Code:
-;; Backup files
-(setq backup-directory-alist `(("." . "~/.emacs.saves")))
+;; ruby completion, navigation and documentation lookup
+(when (fboundp 'robe-mode)
+  (add-hook 'ruby-mode-hook 'robe-mode))
 
-;; Save minibuffer history
-(savehist-mode 1)
+;; disable show-trailing-whitespace
+(defun dg-hide-trailing-whitespace ()
+  "Do not show trailing whitespaces."
+  (setq show-trailing-whitespace nil))
 
-;; Delete trailing whitespaces on save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'ruby-mode-hook #'dg-hide-trailing-whitespace)
 
-;; Scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 1) ;; keyboard scroll one line at a time
+;; Run a pry process
+(defvar dg-pry-path
+  (let* ((lala (shell-command-to-string "whereis pry"))
+         (reg ": \\(.+\\)"))
+    (string-match reg lala)
+    (match-string 1 lala))
+  "Path of pry executable.")
 
-;; Load auto-complete
-(use-package auto-complete
-  :init (global-auto-complete-mode t)
-  :config (progn
-            ;; Use dictionaries by default
-;;            (setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
-            ;; Start auto-completion after 1 char of a word
-            (setq ac-auto-start 1)
-            ;; Ignore case
-            (setq ac-ignore-case nil)))
+(defun run-pry ()
+  "Run an inferior ruby process with pry instead of irb."
+  (interactive)
+  (when dg-pry-path
+    (inf-ruby "pry")))
 
-;; Load global-flycheck-mode
-(defun dg-init-flycheck-mode ()
-  "If `global-flycheck-mode' exists, load it."
-  (when (fboundp 'global-flycheck-mode)
-    (global-flycheck-mode t)))
-
-(add-hook 'after-init-hook #'dg-init-flycheck-mode)
-
-(provide 'editor)
-;;; editor.el ends here
+(provide 'ruby)
+;;; ruby.el ends here

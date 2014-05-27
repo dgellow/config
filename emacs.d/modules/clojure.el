@@ -1,4 +1,4 @@
-;;; editor.el --- dgellow's editor configuration.
+;;; clojure.el --- Miscellaneous functions.
 ;;
 ;; Copyright (c) 2014 Samuel El-Borai
 ;;
@@ -32,39 +32,11 @@
 ;; SOFTWARE.
 
 ;;; Code:
-;; Backup files
-(setq backup-directory-alist `(("." . "~/.emacs.saves")))
-
-;; Save minibuffer history
-(savehist-mode 1)
-
-;; Delete trailing whitespaces on save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; Scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 1) ;; keyboard scroll one line at a time
-
-;; Load auto-complete
-(use-package auto-complete
-  :init (global-auto-complete-mode t)
+(use-package ac-nrepl
   :config (progn
-            ;; Use dictionaries by default
-;;            (setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
-            ;; Start auto-completion after 1 char of a word
-            (setq ac-auto-start 1)
-            ;; Ignore case
-            (setq ac-ignore-case nil)))
+            (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+            (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+            (add-hook 'clojure-nrepl-mode-hook 'ac-nrepl-setup)))
 
-;; Load global-flycheck-mode
-(defun dg-init-flycheck-mode ()
-  "If `global-flycheck-mode' exists, load it."
-  (when (fboundp 'global-flycheck-mode)
-    (global-flycheck-mode t)))
-
-(add-hook 'after-init-hook #'dg-init-flycheck-mode)
-
-(provide 'editor)
-;;; editor.el ends here
+(provide 'clojure)
+;;; clojure.el ends here
