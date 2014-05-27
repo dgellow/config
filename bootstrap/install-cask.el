@@ -42,12 +42,15 @@
 (defvar dg-cask-git-repo
   "https://github.com/cask/cask.git"
   "Cask's git repository.")
+
 (defvar dg-cask-dir
   (expand-file-name ".cask" dg-user-home-dir)
   "Cask's install directory.")
+
 (defvar dg-cask-issue-tracker
   "https://github.com/cask/cask/issues"
   "Cask's issue tracker.")
+
 (defvar dg-cask-bin-path
   (expand-file-name "bin/cask" dg-cask-dir)
   "Path of Cask executable.")
