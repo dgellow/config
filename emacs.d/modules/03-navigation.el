@@ -43,5 +43,12 @@
   ;; disable ido faces to see flx highlights.
   :config (setq ido-use-faces nil))
 
+;; Load uniquify
+(use-package uniquify
+  :config (setq uniquify-buffer-name-style 'forward))
+
+(use-package projectile
+  :config (projectile-global-mode t))
+
 (provide 'navigation)
 ;;; navigation.el ends here

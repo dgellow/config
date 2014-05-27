@@ -53,5 +53,17 @@ Bound to M-N."
 (global-set-key [(meta P)] 'goto-window-beginning)
 (global-set-key [(meta N)] 'goto-window-end)
 
+;; Hippie expand
+(global-set-key (kbd "M-/") 'hippie-expand)
+
+;; Ibuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Switch bindings for search by regexp or string functions
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+
 (provide 'keybinding)
 ;;; keybinding.el ends here

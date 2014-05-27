@@ -44,6 +44,7 @@
 (depends-on "robe")
 (depends-on "ruby-compilation")
 (depends-on "s")
+(depends-on "uniquify")
 (depends-on "use-package")
 (depends-on "web-mode")
 (depends-on "yasnippet")
