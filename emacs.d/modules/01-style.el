@@ -36,16 +36,16 @@
 (global-hl-line-mode -1)
 
 ;; Set custom theme path
-(defvar dg-themes-dir
-  (expand-file-name "themes" user-emacs-directory)
-  "Directory containing dgellow's themes.")
+(setq custom-theme-directory
+  (expand-file-name "themes" user-emacs-directory))
 
 ;; Default theme
 (defun use-default-theme ()
   "Set dgellow's default theme."
   (interactive)
+  (dg-message "Load default theme.")
   (disable-theme 'faceless)
-  (load-theme 'octopussy)
+  (load-theme 'octopussy t)
   (when (boundp 'dgellow/default-font)
     (set-face-attribute 'default nil :font dgellow/default-font)))
 
@@ -53,14 +53,15 @@
 (defun use-terminal-theme ()
   "Set dgellow's theme when running Emacs in a terminal."
   (interactive)
+  (dg-message "Load terminal theme.")
   (disable-theme 'octopussy)
-  (load-theme 'faceless)
+  (load-theme 'faceless t)
   (when (boundp 'dgellow/terminal-font)
     (set-face-attribute 'default nil :font dgellow/terminal-font)))
 
 ;; Startup theme
 (defun set-startup-theme ()
-  "Select a theme depending on the way Emacs has been run (from a terminal or a graphic env)."
+  "Select a theme depending on the display mode Emacs has been run on (from a terminal or a graphic env)."
   (if window-system (use-default-theme)
     (use-terminal-theme)))
 
