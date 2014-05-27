@@ -35,6 +35,23 @@
 ;; Do not highlight current line
 (global-hl-line-mode -1)
 
+;; Do not use a blinking cursor
+(blink-cursor-mode -1)
+
+;; Parentheses colored according to depth
+(global-rainbow-delimiters-mode t)
+
+;; Highlight matching parentheses
+(show-paren-mode 1)
+
+;; Prettier mode-line
+(use-package powerline
+  :config (powerline-default-theme))
+
+;; Set fonts
+(defvar dg-default-font "-unknown-Droid Sans Mono-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1"
+  "Default font when using a graphic environment.")
+
 ;; Set custom theme path
 (setq custom-theme-directory
   (expand-file-name "themes" user-emacs-directory))
@@ -46,8 +63,8 @@
   (dg-message "Load default theme.")
   (disable-theme 'faceless)
   (load-theme 'octopussy t)
-  (when (boundp 'dgellow/default-font)
-    (set-face-attribute 'default nil :font dgellow/default-font)))
+  (when (boundp 'dg-default-font)
+    (set-face-attribute 'default nil :font dg-default-font)))
 
 ;; Terminal theme
 (defun use-terminal-theme ()
@@ -55,9 +72,7 @@
   (interactive)
   (dg-message "Load terminal theme.")
   (disable-theme 'octopussy)
-  (load-theme 'faceless t)
-  (when (boundp 'dgellow/terminal-font)
-    (set-face-attribute 'default nil :font dgellow/terminal-font)))
+  (load-theme 'faceless t))
 
 ;; Startup theme
 (defun set-startup-theme ()
@@ -66,19 +81,6 @@
     (use-terminal-theme)))
 
 (set-startup-theme)
-
-;; Don't defer screen updates when performing operations
-(setq redisplay-dont-pause t)
-
-;; Highlight matching parentheses
-(show-paren-mode 1)
-
-;; Do not use a blinking cursor
-(blink-cursor-mode -1)
-
-;; Prettier mode-line
-(use-package powerline
-  :config (powerline-default-theme))
 
 (provide 'style)
 ;;; style.el ends here

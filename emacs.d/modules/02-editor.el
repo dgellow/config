@@ -35,6 +35,12 @@
 ;; Backup files
 (setq backup-directory-alist `(("." . "~/.emacs.saves")))
 
+;; Indent on C-m
+(electric-indent-mode t)
+
+;; Create parentheses by pair
+(electric-pair-mode t)
+
 ;; Save minibuffer history
 (savehist-mode 1)
 
