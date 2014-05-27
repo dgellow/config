@@ -65,5 +65,13 @@ Bound to M-N."
 (global-set-key [(meta P)] 'goto-window-beginning)
 (global-set-key [(meta N)] 'goto-window-end)
 
+;; Load global-flycheck-mode
+(defun dg-init-flycheck-mode ()
+  "If `global-flycheck-mode' exists, load it."
+  (when (fboundp 'global-flycheck-mode)
+    (global-flycheck-mode t)))
+
+(add-hook 'after-init-hook #'dg-init-flycheck-mode)
+
 (provide 'editor)
 ;;; editor.el ends here
