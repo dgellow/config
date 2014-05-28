@@ -32,30 +32,59 @@
 ;; SOFTWARE.
 
 ;;; Code:
-;; ruby completion, navigation and documentation lookup
-(when (fboundp 'robe-mode)
-  (add-hook 'ruby-mode-hook 'robe-mode))
+;; Use pry in inf-ruby if available
+(defvar dg-pry-path
+  (let ((pry-path (shell-command-to-string "which pry"))
+        (regex "not found"))
+    (unless (string-match regex pry-path)
+      pry-path))
+  "Path of pry executable.")
+
+(defun dg-set-ruby-default-as-pry ()
+  "If pry is installed, use is as `inf-ruby-default-implementation'."
+  (when dg-pry-path
+    (setq inf-ruby-default-implementation "pry")))
+
+;; toggle do ... end block to curly braces or the inverse.
+(defvar dg-ruby-block-do-re
+  "\\<do\\(\\s-*\\|$\\)"
+  "Regexp matching the 'do' part of a 'do ... end' block.")
+
+(defun dg-goto-block-beginning ()
+  "Move point to the beginning of current block.
+It can be either 'do' or '{' keyword."
+  (ruby-backward-sexp)
+  (if (= (point) 1)
+      nil
+    (if (or (looking-at "{")
+            (looking-at "\\<do\\(\\s-*\\|$\\)"))
+        (point)
+      (dg-goto-block-beginning))))
+
+(defun dg-ruby-toggle-block ()
+  "Toggle between do ... end block and curly braces.
+
+The difference with `ruby-toggle-block' is that it can be used within a block."
+  (interactive)
+  (let ((pos-origin (point))
+        (pos-begin-block (dg-goto-block-beginning)))
+    (when pos-begin-block
+        (ruby-toggle-block))
+    (goto-char pos-origin)))
 
 ;; disable show-trailing-whitespace
 (defun dg-hide-trailing-whitespace ()
   "Do not show trailing whitespaces."
   (setq show-trailing-whitespace nil))
 
-(add-hook 'ruby-mode-hook #'dg-hide-trailing-whitespace)
-
-;; Run a pry process
-(defvar dg-pry-path
-  (let* ((lala (shell-command-to-string "whereis pry"))
-         (reg ": \\(.+\\)"))
-    (string-match reg lala)
-    (match-string 1 lala))
-  "Path of pry executable.")
-
-(defun run-pry ()
-  "Run an inferior ruby process with pry instead of irb."
-  (interactive)
-  (when dg-pry-path
-    (inf-ruby "pry")))
+;; Config ruby-mode
+(use-package ruby-mode
+  :bind (("C-c r b" . dg-ruby-toggle-block))
+  ;; ruby completion, navigation and documentation lookup
+  :init (progn
+          (dg-set-ruby-default-as-pry)
+          (add-hook 'ruby-mode-hook 'robe-mode)
+          (add-hook 'ruby-mode-hook #'dg-hide-trailing-whitespace)))
 
 (provide 'dg-ruby)
 ;;; ruby.el ends here
