@@ -32,7 +32,12 @@
 ;; SOFTWARE.
 
 ;;; Code:
-
+;; http://www.emacswiki.org/emacs/ElispCookbook#toc39
+(defun filter (condp list)
+  "Apply CONDP on elements of LIST and return those who are not NIL."
+  (let ((predicate (lambda (x) (and (funcall condp x) x))))
+    (delq nil
+          (mapcar predicate list))))
 
 (provide 'misc)
 ;;; misc.el ends here
