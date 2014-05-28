@@ -38,6 +38,10 @@
 ;; Tab width
 (setq tab-width 2)
 
+;; Easier switching between windows
+(windmove-default-keybindings)
+(setq windmove-wrap-around t)
+
 ;; Indent on C-m
 (electric-indent-mode t)
 
