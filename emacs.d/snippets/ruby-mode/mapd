@@ -1,0 +1,6 @@
+#name : map do |...| ... end
+#group : collections
+# --
+map do | ${item} |
+  $0
+end
