@@ -1,4 +1,4 @@
-;;; lisp.el --- Miscellaneous functions.
+;;; lisp.el --- lisp configuration.
 ;;
 ;; Copyright (c) 2014 Samuel El-Borai
 ;;
@@ -46,5 +46,5 @@
 (use-package slime
   :config (slime-setup '(slime-fancy)))
 
-(provide 'lisp)
+(provide 'dg-lisp)
 ;;; lisp.el ends here

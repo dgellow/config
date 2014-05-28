@@ -1,4 +1,4 @@
-;;; haml.el --- Miscellaneous functions.
+;;; haml.el --- haml configuration.
 ;;
 ;; Copyright (c) 2014 Samuel El-Borai
 ;;
@@ -34,5 +34,5 @@
 ;;; Code:
 (use-package haml-mode)
 
-(provide 'haml)
+(provide 'dg-haml)
 ;;; haml.el ends here

@@ -1,4 +1,4 @@
-;;; coffeescript.el --- Miscellaneous functions.
+;;; coffeescript.el --- coffeescript configuration.
 ;;
 ;; Copyright (c) 2014 Samuel El-Borai
 ;;
@@ -38,5 +38,5 @@
 
 (add-hook 'coffee-mode-hook '(lambda () (coffee-custom)))
 
-(provide 'coffeescript)
+(provide 'dg-coffeescript)
 ;;; coffescript.el ends here

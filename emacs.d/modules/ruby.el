@@ -1,4 +1,4 @@
-;;; ruby.el --- Miscellaneous functions.
+;;; ruby.el --- ruby configuration.
 ;;
 ;; Copyright (c) 2014 Samuel El-Borai
 ;;
@@ -57,5 +57,5 @@
   (when dg-pry-path
     (inf-ruby "pry")))
 
-(provide 'ruby)
+(provide 'dg-ruby)
 ;;; ruby.el ends here

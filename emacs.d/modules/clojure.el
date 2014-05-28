@@ -1,4 +1,4 @@
-;;; clojure.el --- Miscellaneous functions.
+;;; clojure.el --- clojure configuration..
 ;;
 ;; Copyright (c) 2014 Samuel El-Borai
 ;;
@@ -38,5 +38,5 @@
             (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
             (add-hook 'clojure-nrepl-mode-hook 'ac-nrepl-setup)))
 
-(provide 'clojure)
+(provide 'dg-clojure)
 ;;; clojure.el ends here

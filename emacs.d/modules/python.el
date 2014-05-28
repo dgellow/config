@@ -1,4 +1,4 @@
-;;; python.el --- Miscellaneous functions.
+;;; python.el --- python configuration.
 ;;
 ;; Copyright (c) 2014 Samuel El-Borai
 ;;
@@ -43,5 +43,5 @@
 ;;   (add-to-list 'load-path dg-python-mode-file))
 (use-package python-mode)
 
-(provide 'python)
+(provide 'dg-python)
 ;;; python.el ends here
