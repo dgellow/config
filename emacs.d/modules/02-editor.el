@@ -72,16 +72,5 @@
 ;; Extend search paths for apropos
 (setq apropos-do-all t)
 
-;; Load auto-complete
-(use-package auto-complete
-  :init (global-auto-complete-mode t)
-  :config (progn
-            ;; Use dictionaries by default
-;;            (setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
-            ;; Start auto-completion after 1 char of a word
-            (setq ac-auto-start 1)
-            ;; Ignore case
-            (setq ac-ignore-case nil)))
-
 (provide 'editor)
 ;;; editor.el ends here
