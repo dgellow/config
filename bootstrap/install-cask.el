@@ -61,13 +61,24 @@
          (command (format "%s %s" dg-cask-bin-path params)))
     (shell-command-to-string command)))
 
+(defvar dg-git-installed-p
+  (not (string-match "not found"
+                     (shell-command-to-string "which git"))))
+
+(defun dg-git-clone (repo dest)
+  "Clone git REPO to DEST."
+  (let ((command
+         (format "git clone %s %s" repo dest)))
+    (when dg-git-installed-p
+      (shell-command-to-string command))))
+
 (defun dg-cask-install-from-git ()
   "Install cask by cloning the git repository.
 
 Clone from `dg-cask-git-repo' to `dg-cask-dir'."
   (dg-message
    (format "Git clone %s to %s ... " dg-cask-git-repo dg-cask-dir))
-  (git-clone dg-cask-git-repo dg-cask-dir))
+  (dg-git-clone dg-cask-git-repo dg-cask-dir))
 
 (defun dg-cask-linux-installed-p ()
   "Check if a .cask file already exists."
