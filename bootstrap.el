@@ -48,6 +48,11 @@ If `load-file-name' is empty, use the value of `current-buffer'."
     (if context
       (message "[%s]: %s" context STRING))))
 
+;; Home directory
+(defvar dg-user-home-dir
+  (substitute-in-file-name "$HOME")
+  "User's home directory.")
+
 ;; Current directory
 (defvar load-file-dir
   (file-name-directory (or load-file-name buffer-file-name))

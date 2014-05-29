@@ -35,10 +35,6 @@
 (dg-message "Begin ... ")
 
 ;; Install from git
-(defvar dg-user-home-dir
-  (substitute-in-file-name "$HOME")
-  "User's home directory.")
-
 (defvar dg-cask-git-repo
   "https://github.com/cask/cask.git"
   "Cask's git repository.")
