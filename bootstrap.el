@@ -42,7 +42,7 @@
 (defun dg-message (STRING)
   "Print a message with `load-file-name' as context and STRING as value.
 If `load-file-name' is empty, use the value of `current-buffer'."
-  (let* ((filename (or load-file-name (current-buffer)))
+  (let* ((filename (or load-file-name buffer-file-name))
          (regexp-filename "\\(\\w+\\.el$\\)")
          (context (dg-match-first regexp-filename filename)))
     (if context
@@ -50,7 +50,7 @@ If `load-file-name' is empty, use the value of `current-buffer'."
 
 ;; Current directory
 (defvar load-file-dir
-  (file-name-directory load-file-name)
+  (file-name-directory (or load-file-name buffer-file-name))
   "Directory of current file.")
 
 ;; Current operating system
