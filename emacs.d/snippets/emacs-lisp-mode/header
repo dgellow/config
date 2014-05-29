@@ -3,7 +3,7 @@
 # --
 ;;; ${1:`(file-name-nondirectory (buffer-file-name))`} --- $2.
 ;;
-;; Copyright (c) 2014 Samuel El-Borai
+;; Copyright (c) `(nth 5 (decode-time))` Samuel El-Borai
 ;;
 ;; Author: Samuel El-Borai <samuel.elborai@gmail.com>
 ;; URL: https://github.com/dgellow/$3
