@@ -22,6 +22,12 @@ export TERM=xterm-256color
 # Disable xterm <C-S> freezed mode
 stty stop ''
 
+# Syntax highlighting on stdin
+hilite () {
+    lang=$1
+    source-highlight --out-format=esc --output=STDOUT --src-lang=$lang
+}
+
 
 ##————————————————————————————————————————————————————————————————————
 ##                   1. Utilities
