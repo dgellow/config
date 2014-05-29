@@ -43,8 +43,7 @@
   "Print a message with `load-file-name' as context and STRING as value.
 If `load-file-name' is empty, use the value of `current-buffer'."
   (let* ((filename (or load-file-name buffer-file-name))
-         (regexp-filename "\\(\\w+\\.el$\\)")
-         (context (dg-match-first regexp-filename filename)))
+         (context (file-name-nondirectory filename)))
     (if context
       (message "[%s]: %s" context STRING))))
 
