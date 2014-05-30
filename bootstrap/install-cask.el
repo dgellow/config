@@ -83,8 +83,6 @@ Clone from `dg-cask-git-repo' to `dg-cask-dir'."
          (dg-cask-bootstrap)
          (dg-message msg-success)))))
 
-
-
 ;; Install from homebrew
 (defvar dg-cask-brew-path nil "Path of brew executable.")
 
