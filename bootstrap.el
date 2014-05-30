@@ -72,7 +72,7 @@ If `load-file-name' is empty, use the value of `current-buffer'."
   (dg-message "Only Linux and Mac OS X are supported for now.")
   (throw 'unsupported-platform 't))
 
-;; Load modules and utils
+;; Load modules
 (defun dg-load-modules (DIRECTORY)
   "Load every *.el files in the given DIRECTORY."
   (when (file-exists-p DIRECTORY)
@@ -82,9 +82,20 @@ If `load-file-name' is empty, use the value of `current-buffer'."
 (defvar dg-bootstrap-dir
   (expand-file-name "bootstrap" load-file-dir))
 
+;; Git functionalities
+(defvar dg-git-installed-p
+  (not (string-match "not found"
+                     (shell-command-to-string "which git"))))
+
+(defun dg-git-clone (repo dest)
+  "Clone git REPO to DEST."
+  (let ((command
+         (format "git clone %s %s" repo dest)))
+    (when dg-git-installed-p
+      (shell-command-to-string command))))
+
 ;; Load modules
 (dg-message "Modules:")
 (dg-load-modules dg-bootstrap-dir)
-
 
 ;;; bootstrap.el ends here
