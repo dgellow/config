@@ -34,19 +34,6 @@
 ;; SOFTWARE.
 
 ;;; Code:
-(defun dg-match-first (REGEXP STRING)
-  "Return the first group matched by applying REGEXP on STRING."
-  (string-match REGEXP STRING)
-  (match-string 1 STRING))
-
-(defun dg-message (STRING)
-  "Print a message with `load-file-name' as context and STRING as value.
-If `load-file-name' is empty, use the value of `current-buffer'."
-  (let* ((filename (or load-file-name buffer-file-name))
-         (context (file-name-nondirectory filename)))
-    (if context
-      (message "[%s]: %s" context STRING))))
-
 ;; Home directory
 (defvar dg-user-home-dir
   (substitute-in-file-name "$HOME")
@@ -72,21 +59,35 @@ If `load-file-name' is empty, use the value of `current-buffer'."
   (dg-message "Only Linux and Mac OS X are supported for now.")
   (throw 'unsupported-platform 't))
 
+;; Modules directory
+(defvar dg-bootstrap-dir
+  (expand-file-name "bootstrap" load-file-dir))
+
+;; Is git installed ?
+(defvar dg-git-installed-p
+  (not (string-match "not found"
+                     (shell-command-to-string "which git"))))
+
+(defun dg-match-first (REGEXP STRING)
+  "Return the first group matched by applying REGEXP on STRING."
+  (string-match REGEXP STRING)
+  (match-string 1 STRING))
+
+(defun dg-message (STRING)
+  "Print a message with `load-file-name' as context and STRING as value.
+If `load-file-name' is empty, use the value of `current-buffer'."
+  (let* ((filename (or load-file-name buffer-file-name))
+         (context (file-name-nondirectory filename)))
+    (if context
+      (message "[%s]: %s" context STRING))))
+
 ;; Load modules
 (defun dg-load-modules (DIRECTORY)
   "Load every *.el files in the given DIRECTORY."
   (when (file-exists-p DIRECTORY)
     (mapc 'load (directory-files DIRECTORY 't "^[^#].*\\.el$"))))
 
-;; Modules directory
-(defvar dg-bootstrap-dir
-  (expand-file-name "bootstrap" load-file-dir))
-
-;; Git functionalities
-(defvar dg-git-installed-p
-  (not (string-match "not found"
-                     (shell-command-to-string "which git"))))
-
+;; Clone from a git repo
 (defun dg-git-clone (repo dest)
   "Clone git REPO to DEST."
   (let ((command

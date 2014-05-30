@@ -34,16 +34,21 @@
 ;;; Code:
 (require 'cl) ; needed for (reduce ...)
 
-(defun dg-symlink (target name)
-  "Create a symbolic link to TARGET with the name NAME."
-  (let ((command (format "ln -s %s %s" target name)))
-    (shell-command-to-string command)))
-
 (defvar dg-blacklist-dot-files
   '("bootstrap"
     "vagrantfile"
     "readme")
   "List of regexp to exclude files from the symlinking process.")
+
+(defvar dg-list-dot-files
+  (dg-exclude-blacklisted-files
+   (directory-files load-file-dir 't "^[^\\.].*$"))
+  "Files to symlink.")
+
+(defun dg-symlink (target name)
+  "Create a symbolic link to TARGET with the name NAME."
+  (let ((command (format "ln -s %s %s" target name)))
+    (shell-command-to-string command)))
 
 (defun dg-exclude-blacklisted-files (list-files)
   "Exclude files from LIST-FILES which match a regexp contained in `dg-blacklist-dot-files'."
@@ -55,11 +60,6 @@
           (mapcar (lambda (regexp)
             (string-match-p regexp (file-name-nondirectory file)))
           dg-blacklist-dot-files)))
-
-(defvar dg-list-dot-files
-  (dg-exclude-blacklisted-files
-   (directory-files load-file-dir 't "^[^\\.].*$"))
-  "Files to symlink.")
 
 ;; Create symlinks
 (defun dg-create-symlink (file)

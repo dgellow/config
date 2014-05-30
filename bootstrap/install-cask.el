@@ -84,16 +84,16 @@ Clone from `dg-cask-git-repo' to `dg-cask-dir'."
 ;; Install from homebrew
 (defvar dg-cask-brew-path nil "Path of brew executable.")
 
+(defvar dg-cask-brew-params
+  "install cask"
+  "Parameters to use when running brew.")
+
 (defun dg-cask-set-brew-path ()
   "Set `dg-cask-brew-path'."
   (let ((brew-path (shell-command-to-string "which brew"))
         (regex "not found"))
     (unless (string-match regex brew-path)
       (setq dg-cask-brew-path brew-path))))
-
-(defvar dg-cask-brew-params
-  "install cask"
-  "Parameters to use when running brew.")
 
 (defun dg-cask-install-from-brew ()
   "Install cask with the package manager homebrew.
