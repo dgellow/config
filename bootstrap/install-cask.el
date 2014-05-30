@@ -61,8 +61,6 @@
   "Install cask by cloning the git repository.
 
 Clone from `dg-cask-git-repo' to `dg-cask-dir'."
-  (dg-message
-   (format "Git clone %s to %s ... " dg-cask-git-repo dg-cask-dir))
   (dg-git-clone dg-cask-git-repo dg-cask-dir))
 
 (defun dg-cask-linux-installed-p ()
