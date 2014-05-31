@@ -39,7 +39,7 @@
 (defun dg-rvm-install ()
   "Install rvm if it is not already."
   (if (file-exists-p dg-rvm-dir)
-      (dg-message (format "File %s already exists." dg-rvm-dir))
+      (error (format "File %s already exists." dg-rvm-dir))
     (shell-command-to-string dg-rvm-install-command)))
 
 (dg-rvm-install)

@@ -41,7 +41,7 @@
 (defun dg-ohmyzsh-install ()
   "Install oh-my-zsh if it is not already."
   (if (file-exists-p dg-ohmyzsh-dir)
-      (dg-message (format "File %s already exists." dg-ohmyzsh-dir))
+      (error (format "File %s already exists." dg-ohmyzsh-dir))
     (dg-git-clone dg-ohmyzsh-git-repo dg-ohmyzsh-dir)))
 
 (dg-ohmyzsh-install)

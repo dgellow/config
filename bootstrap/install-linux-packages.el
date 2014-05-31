@@ -114,7 +114,7 @@
 ;; Install
 (if dg-current-linux
   (dg-linux-packages-install)
-  (dg-message "Current linux system cannot be identified."))
+  (error "Current linux system cannot be identified"))
 
 (provide 'dg-install-linux-packages)
 ;;; install-linux-packages.el ends here

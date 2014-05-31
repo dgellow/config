@@ -56,8 +56,7 @@
 
 ;; Throw exception if not a supported platform
 (unless (or linux-p mac-p)
-  (dg-message "Only Linux and Mac OS X are supported for now.")
-  (throw 'unsupported-platform 't))
+  (error "Only Linux and Mac OS X are supported for now"))
 
 ;; Modules directory
 (defvar dg-bootstrap-dir
@@ -90,13 +89,15 @@ If `load-file-name' is empty, use the value of `current-buffer'."
 ;; Clone from a git repo
 (defun dg-git-clone (repo dest)
   "Clone git REPO to DEST."
-  (let ((command
-         (format "git clone %s %s" repo dest)))
-    (when dg-git-installed-p
-      (shell-command-to-string command))))
+  (if (not dg-git-installed-p)
+      (error "Git cannot be found")
+    (let ((command
+           (format "git clone %s %s" repo dest)))
+      (when dg-git-installed-p
+        (shell-command-to-string command)))))
+
 
 ;; Load modules
-(dg-message "Modules:")
 (dg-load-modules dg-bootstrap-dir)
 
 ;;; bootstrap.el ends here

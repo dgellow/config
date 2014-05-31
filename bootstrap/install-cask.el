@@ -32,8 +32,6 @@
 ;; SOFTWARE.
 
 ;;; Code:
-(dg-message "Begin ... ")
-
 ;; Install from git
 (defvar dg-cask-git-repo
   "https://github.com/cask/cask.git"
@@ -70,10 +68,9 @@ Clone from `dg-cask-git-repo' to `dg-cask-dir'."
 (defun dg-cask-linux-install ()
   "Make some check then install cask from git."
   (let ((msg-file-exists
-         (format "Directory %s exists. Is Cask already installed?"
-                   dg-cask-dir))
+         (format "File %s already exists." dg-cask-dir))
         (msg-not-linux "You are not running GNU/Linux.")
-        (msg-success "Successfully installed Cask!  Now, add the cask binary to your $PATH."))
+        (msg-success "Cask has been installed."))
     (cond
      ((not linux-p) (dg-message msg-not-linux))
      ((dg-cask-linux-installed-p) (dg-message msg-file-exists))
@@ -103,7 +100,7 @@ Homebrew is only available on Mac OS X."
     (throw 'only-with-macosx 't))
   (let ((brew-command
          (format "%s %s" dg-cask-brew-path dg-cask-brew-params)))
-    (dg-message "Install from brew ... ")
+    (dg-message brew-command)
     (shell-command-to-string brew-command)))
 
 (defun dg-cask-mac-installed-p ()
@@ -116,7 +113,7 @@ Homebrew is only available on Mac OS X."
   "Make some check then install cask from brew."
   (let ((msg-exists "Cask is already installed. Check with `which cask'.")
         (msg-not-mac "You are not running Mac OS X.")
-        (msg-success "Successfully installed Cask!  Now, add the cask binary to your $PATH."))
+        (msg-success "Cask has been installed."))
     (cond
      ((not mac-p) (dg-message msg-not-mac))
      ((dg-cask-mac-installed-p) (dg-message msg-exists))
@@ -127,8 +124,6 @@ Homebrew is only available on Mac OS X."
 ;; Run the install
 (cond (linux-p (dg-cask-linux-install))
       (mac-p (dg-cask-mac-install)))
-
-(dg-message "Done.")
 
 (provide 'install-cask)
 ;;; install-cask.el ends here
