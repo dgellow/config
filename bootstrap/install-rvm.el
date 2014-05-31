@@ -36,10 +36,33 @@
 
 (defvar dg-rvm-dir (expand-file-name ".rvm" dg-user-home-dir))
 
+(defun dg-overwrite-rvm (file)
+  ""
+  (when (file-exists-p file)
+    (cond
+     ((file-symlink-p file) (delete-file file))
+     ((file-directory-p file) (delete-directory file t))
+     (t (delete-file file)))))
+
+(defun dg-not-overwrite-rvm (file)
+  ""
+  (when (file-exists-p file)
+    (dg-message (format "File %s already exists." file))))
+
 (defun dg-rvm-install ()
-  "Install rvm if it is not already."
-  (if (file-exists-p dg-rvm-dir)
-      (error (format "File %s already exists." dg-rvm-dir))
+  "Install rvm."
+  (cond
+   ((eq dg-overwrite-p 'y)
+    (dg-overwrite-rvm dg-rvm-dir))
+   ((eq dg-overwrite-p 'n)
+    (dg-not-overwrite-rvm dg-rvm-dir))
+   ((eq dg-overwrite-p 'a)
+    (when (file-exists-p dg-rvm-dir)
+      (if (y-or-n-p (format "Overwrite %s? " dg-rvm-dir))
+          (dg-overwrite-rvm dg-rvm-dir)
+        (dg-not-overwrite-rvm dg-rvm-dir)))))
+
+  (unless (file-exists-p dg-rvm-dir)
     (shell-command-to-string dg-rvm-install-command)))
 
 (dg-rvm-install)

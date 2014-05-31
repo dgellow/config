@@ -38,10 +38,33 @@
 (defvar dg-ohmyzsh-dir (expand-file-name ".oh-my-zsh" dg-user-home-dir)
   "")
 
+(defun dg-overwrite-ohmyzsh (file)
+  ""
+  (when (file-exists-p file)
+    (cond
+     ((file-symlink-p file) (delete-file file))
+     ((file-directory-p file) (delete-directory file t))
+     (t (delete-file file)))))
+
+(defun dg-not-overwrite-ohmyzsh (file)
+  ""
+  (when (file-exists-p file)
+    (dg-message (format "File %s already exists." file))))
+
 (defun dg-ohmyzsh-install ()
-  "Install oh-my-zsh if it is not already."
-  (if (file-exists-p dg-ohmyzsh-dir)
-      (error (format "File %s already exists." dg-ohmyzsh-dir))
+  "Install oh-my-zsh."
+  (cond
+   ((eq dg-overwrite-p 'y)
+    (dg-overwrite-ohmyzsh dg-ohmyzsh-dir))
+   ((eq dg-overwrite-p 'n)
+    (dg-not-overwrite-ohmyzsh dg-ohmyzsh-dir))
+   ((eq dg-overwrite-p 'a)
+    (when (file-exists-p dg-ohmyzsh-dir)
+      (if (y-or-n-p (format "Overwrite %s? " dg-ohmyzsh-dir))
+          (dg-overwrite-ohmyzsh dg-ohmyzsh-dir)
+        (dg-not-overwrite-ohmyzsh dg-ohmyzsh-dir)))))
+
+  (unless (file-exists-p dg-ohmyzsh-dir)
     (dg-git-clone dg-ohmyzsh-git-repo dg-ohmyzsh-dir)))
 
 (dg-ohmyzsh-install)

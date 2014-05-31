@@ -61,23 +61,37 @@
    (directory-files load-file-dir 't "^[^\\.].*$"))
   "Files to symlink.")
 
+(defun dg-overwrite-symlink (file)
+  ""
+  (when (file-exists-p file)
+    (cond
+     ((file-symlink-p file) (delete-file file))
+     ((file-directory-p file) (delete-directory file t))
+     (t (delete-file file)))))
+
+(defun dg-not-overwrite-symlink (file)
+  ""
+  (when (file-exists-p file)
+    (dg-message (format "File %s already exists." file))))
+
 ;; Create symlinks
 (defun dg-create-symlink (file)
-  "Create a hidden symlink for FILE in $HOME.
-If the hidden file already exists a confirmation to overwrite it is prompted."
+  "Create a hidden symlink for FILE in $HOME."
   (let* ((dest-file-name
          (expand-file-name (format ".%s" (file-name-nondirectory file))
                            dg-user-home-dir))
-         (msg-file-exists
-          (format "File %s already exists." dest-file-name))
-         (overwrite-p (and (file-exists-p dest-file-name)
-                           (progn
-                             (dg-message msg-file-exists)
-                             (y-or-n-p "Overwrite?")))))
-    (when overwrite-p
-      (if (file-directory-p dest-file-name)
-          (delete-directory dest-file-name t)
-          (delete-file dest-file-name)))
+         (msg-overwrite (format "Overwrite %s? " dest-file-name)))
+    (cond
+     ((eq dg-overwrite-p 'y)
+      (dg-overwrite-symlink dest-file-name))
+     ((eq dg-overwrite-p 'n)
+          (dg-not-overwrite-symlink dest-file-name))
+     ((eq dg-overwrite-p 'a)
+      (when (file-exists-p dest-file-name)
+        (if (y-or-n-p msg-overwrite)
+            (dg-overwrite-symlink dest-file-name)
+          (dg-not-overwrite-symlink dest-file-name)))))
+
     (unless (file-exists-p dest-file-name)
       (dg-symlink file dest-file-name))))
 
