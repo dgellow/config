@@ -39,7 +39,8 @@
     ("python" . "python2.7")
     ("zsh" . nil)
     ("curl" . nil)
-    ("pip" . "python-pip")))
+    ("pip" . "python-pip")
+    ("git" . nil)))
 
 (defun dg-set-archlinux-packages ()
   ""
