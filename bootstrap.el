@@ -80,6 +80,36 @@ If `load-file-name' is empty, use the value of `current-buffer'."
     (if context
       (message "[%s]: %s" context STRING))))
 
+;; Ask user to overwrite files
+(defvar dg-prompt-msg
+  "Overwrite existing files ? [(y)es/(n)o/(a)sk each time]")
+
+(defvar dg-prompt-answers
+  '("y" "yes"
+    "n" "no"
+    "a" "ask"))
+
+(defvar dg-overwrite-p
+  nil)
+
+(defun dg-prompt-overwrite-recur (value)
+  "Recursive helper."
+  (let ((valid-input-p
+         (when value
+           (delq 'nil
+                 (mapcar
+                  (lambda (x) (string= x value))
+                  dg-prompt-answers)))))
+    (if (car valid-input-p)
+        (intern (substring value 0 1))
+      (dg-prompt-overwrite-recur
+       (read-string dg-prompt-msg)))))
+
+(defun dg-prompt-overwrite ()
+  "Ask the user if the bootstrapping process will overwrite existing files.
+Possible answers are defined in `dg-prompt-answers'."
+  (dg-prompt-overwrite-recur nil))
+
 ;; Load modules
 (defun dg-load-modules (DIRECTORY)
   "Load every *.el files in the given DIRECTORY."
@@ -97,6 +127,9 @@ If `load-file-name' is empty, use the value of `current-buffer'."
         (shell-command-to-string command)))))
 
 
+;; Prompt overwrite
+(setq dg-overwrite-p
+      (dg-prompt-overwrite))
 ;; Load modules
 (dg-load-modules dg-bootstrap-dir)
 
