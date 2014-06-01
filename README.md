@@ -4,9 +4,13 @@ I have created this project to easily set up a new environment with all my confi
 
 # Usage
 
-Just clone the project somewhere and run the shell script. I am personally using `~/.config/`.
+Install `emacs24` if it is not already then clone the project somewhere and run the script `bootstrap.el`.
 
     $ cd ~/.config/
-    $ clone https://github.com/dgellow/home-bootstrapping.git dgellow
+    $ git clone https://github.com/dgellow/home-bootstrapping.git dgellow
     $ cd dgellow
-    $ sh bootstrap.sh
+    $ emacs24 --script bootstrap.el
+
+Tested on Archlinux and Ubuntu 12.04.
+
+![Running on Ubuntu 12.04](http://i.imgur.com/Ds5uMEg.png)
