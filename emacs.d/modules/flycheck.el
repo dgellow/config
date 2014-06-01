@@ -32,12 +32,8 @@
 ;; SOFTWARE.
 
 ;;; Code:
-(defun dg-init-flycheck-mode ()
-  "If `global-flycheck-mode' exists, load it."
-  (when (fboundp 'global-flycheck-mode)
-    (global-flycheck-mode t)))
-
-(add-hook 'after-init-hook #'dg-init-flycheck-mode)
+(use-package flycheck
+  :init (add-hook 'after-init-hook 'global-flycheck-mode))
 
 (provide 'dg-flycheck)
 ;;; flycheck.el ends here

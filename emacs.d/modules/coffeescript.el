@@ -32,11 +32,12 @@
 ;; SOFTWARE.
 
 ;;; Code:
-(defun coffee-custom ()
+(defun dg-coffee-mode-bindings ()
   "coffee-mode-hook"
   (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer))
 
-(add-hook 'coffee-mode-hook '(lambda () (coffee-custom)))
+(use-package coffee-mode
+  :init (add-hook 'coffee-mode-hook 'dg-coffee-mode-bindings))
 
 (provide 'dg-coffeescript)
 ;;; coffescript.el ends here
