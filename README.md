@@ -13,4 +13,4 @@ Install `emacs24` if it is not already then clone the project somewhere and run 
 
 Tested on Archlinux and Ubuntu 12.04.
 
-![Running on Ubuntu 12.04](http://i.imgur.com/Ds5uMEg.png)
+![Running on Ubuntu 12.04](http://i.imgur.com/j9rSGkh.gif)
