@@ -79,7 +79,9 @@ The difference with `ruby-toggle-block' is that it can be used within a block."
 
 ;; Config ruby-mode
 (use-package ruby-mode
-  :bind (("C-c r b" . dg-ruby-toggle-block))
+  :bind (("C-c r b" . dg-ruby-toggle-block)
+         ("C-c r r" . inf-ruby)
+         ("C-c r l" . ruby-load-file))
   ;; ruby completion, navigation and documentation lookup
   :init (progn
           (dg-set-ruby-default-as-pry)
