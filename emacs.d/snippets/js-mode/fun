@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#name : new named function
+# --
+var $1 = function $1 ($2) {
+    return $0;
+};
