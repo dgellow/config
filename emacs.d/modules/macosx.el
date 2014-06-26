@@ -34,7 +34,11 @@
 ;;; Code:
 ;; Do not use right alt key as meta
 (when (eq system-type 'darwin)
-  (setq mac-right-option-modifier 'none))
+  (setq mac-right-option-modifier 'none)
+  (set-face-attribute 'default nil
+                      :family "Menlo"
+                      :height 130
+                      :weight 'normal))
 
 (provide 'dg-macosx)
 ;;; macosx.el ends here
