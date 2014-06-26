@@ -33,7 +33,7 @@
 
 ;;; Code:
 ;; Do not use right alt key as meta
-(when (eq-system-type 'darwin)
+(when (eq system-type 'darwin)
   (setq mac-right-option-modifier 'none))
 
 (provide 'dg-macosx)
