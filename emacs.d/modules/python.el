@@ -32,16 +32,15 @@
 ;; SOFTWARE.
 
 ;;; Code:
-;; (defvar dg-python-mode-dir
-;;   (expand-file-name "vendor/python-mode/" user-emacs-directory)
-;;   "Python-mode install directory.")
-;; (defvar dg-python-mode-file
-;;   (expand-file-name "python-mode.el" dg-python-mode-dir)
-;;   "Python-mode.el file.")
-
-;; (when (file-exists-p dg-python-mode-file)
-;;   (add-to-list 'load-path dg-python-mode-file))
-(use-package python-mode)
+(use-package python
+  :mode ("\\.py\\'" . python-mode)
+  :config
+  (progn (add-hook 'python-mode-hook 'anaconda-mode)
+         (add-hook 'python-mode-hook 'jedi:setup)
+         ;; auto-complete is needed by jedi, but it sucks, and company
+         ;; is superior for almost everything.
+         (add-hook 'python-mode-hook (lambda () (auto-complete-mode 0))
+         (add-to-list 'company-backends 'company-anaconda))))
 
 (provide 'dg-python)
 ;;; python.el ends here
