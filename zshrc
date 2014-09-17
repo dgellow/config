@@ -17,3 +17,6 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Load oh-my-zshrc configuration.
 source $ZSH/oh-my-zshrc
+
+# Load fuzzy finder
+source ~/.fzf.zsh
