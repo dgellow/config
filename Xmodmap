@@ -5,16 +5,22 @@
 !   Adaptation I made to the bépo layout to improve my feeling when
 !   programming.
 
-keycode  11 = less 2 2 at guillemotleft leftdoublequotemark				
-keycode  12 = greater 3 3 numbersign guillemotright rightdoublequotemark		
-keycode  25 = eacute Eacute w W parenleft dead_doubleacute				
-keycode  26 = p P e E parenright section						
-keycode  27 = o O r R ampersand OE							
-keycode  28 = w W t T dead_breve VoidSymbol						
-keycode  29 = dead_grave exclam y Y VoidSymbol exclamdown				
-keycode  34 = equal dead_circumflex bracketleft braceleft schwa SCHWA			
-keycode  35 = dead_diaeresis dead_caron bracketright braceright dead_breve VoidSymbol	
-keycode  39 = u U s S bracketleft dead_caron						
-keycode  40 = i I d D bracketright dead_diaeresis					
-keycode  52 = z Z z Z backslash rightsinglequotemark					
-keycode  65 = space space space space underscore nobreakspace underscore nobreakspace	
+! Modifiers
+keycode 66 = Control_L
+remove lock = Control_L
+add control = Control_L
+
+! Layout
+keycode  11 = less 2 2 at guillemotleft leftdoublequotemark
+keycode  12 = greater 3 3 numbersign guillemotright rightdoublequotemark
+keycode  25 = eacute Eacute w W parenleft dead_doubleacute
+keycode  26 = p P e E parenright section
+keycode  27 = o O r R ampersand OE
+keycode  28 = w W t T dead_breve VoidSymbol
+keycode  29 = dead_grave exclam y Y VoidSymbol exclamdown
+keycode  34 = equal dead_circumflex bracketleft braceleft schwa SCHWA
+keycode  35 = dead_diaeresis dead_caron bracketright braceright dead_breve VoidSymbol
+keycode  39 = u U s S bracketleft dead_caron
+keycode  40 = i I d D bracketright dead_diaeresis
+keycode  52 = z Z z Z backslash rightsinglequotemark
+keycode  65 = space space space space underscore nobreakspace underscore nobreakspace
