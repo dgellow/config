@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+#name : new React class
+# --
+var $1 = React.createClass({
+    render: function() {
+        return ($0);
+    }
+});
