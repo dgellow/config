@@ -39,7 +39,7 @@
 (blink-cursor-mode -1)
 
 ;; Parentheses colored according to depth
-(global-rainbow-delimiters-mode t)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Highlight matching parentheses
 (show-paren-mode 1)
