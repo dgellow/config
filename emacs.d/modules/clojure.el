@@ -32,11 +32,10 @@
 ;; SOFTWARE.
 
 ;;; Code:
-(use-package ac-nrepl
-  :config (progn
-            (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-            (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-            (add-hook 'clojure-nrepl-mode-hook 'ac-nrepl-setup)))
+(use-package clojure-mode
+  :init (progn
+          (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+          (setq cider-repl-use-clojure-font-lock t)))
 
 (provide 'dg-clojure)
 ;;; clojure.el ends here
