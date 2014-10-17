@@ -35,6 +35,7 @@
 (use-package clojure-mode
   :init (progn
           (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+          (add-hook 'cider-repl-mode-hook 'pretty-mode)
           (setq cider-repl-use-clojure-font-lock t)))
 
 (provide 'dg-clojure)
