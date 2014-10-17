@@ -41,6 +41,9 @@
 ;; Parentheses colored according to depth
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+;; Show lambda as the greek character
+(add-hook 'prog-mode-hook 'pretty-mode)
+
 ;; Highlight matching parentheses
 (show-paren-mode 1)
 
