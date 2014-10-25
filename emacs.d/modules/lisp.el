@@ -39,12 +39,12 @@
   (expand-file-name "slime-helper.el" dg-quicklisp-dir)
   "Quicklisp's helper for SLIME.")
 
-(when (file-exists-p dg-quicklisp-helper)
-  (load dg-quicklisp-helper))
-(setq inferior-lisp-program "/usr/bin/ccl")
-
 (use-package slime
-  :config (slime-setup '(slime-fancy)))
+  :config (progn
+            (setq inferior-lisp-program "/usr/bin/sbcl")
+            (slime-setup '(slime-fancy))
+            (when (file-exists-p dg-quicklisp-helper)
+              (load dg-quicklisp-helper))))
 
 (provide 'dg-lisp)
 ;;; lisp.el ends here
