@@ -151,7 +151,7 @@ Consulted version: https://github.com/swannodette/om/blob/4e4aa4ee560ad3a3ce7600
 
 (defun dg-set-om-indent-rules ()
   "Fix the way functions from om.dom are indented."
-  (mapc (lambda (x) (put-clojure-indent x 1)) dg-list-om-dom-tags))
+  (mapc (lambda (x) (put-clojure-indent x 'defun)) dg-list-om-dom-tags))
 
 (defvar dg-list-clj-core-fn-indent-as-defun
   '(apply))
