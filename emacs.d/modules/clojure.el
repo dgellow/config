@@ -139,24 +139,7 @@
     ul
     var
     video
-    wbr
-
-    ;; svg
-    circle
-    ellipse
-    g
-    line
-    path
-    polyline
-    rect
-    svg
-    text
-    defs
-    linearGradient
-    polygon
-    radialGradient
-    stop
-    tspan))
+    wbr))
 
 (defun dg-set-om-indent-rules ()
   "Fix the way functions from om.dom are indented."
