@@ -153,12 +153,19 @@ Consulted version: https://github.com/swannodette/om/blob/4e4aa4ee560ad3a3ce7600
   "Fix the way functions from om.dom are indented."
   (mapc (lambda (x) (put-clojure-indent x 1)) dg-list-om-dom-tags))
 
+(defvar dg-list-clj-core-fn-indent-as-defun
+  '(apply))
+
+(defun dg-set-coreclj-indent-rules ()
+  (mapc (lambda (x) (put-clojure-indent x 'defun)) dg-list-clj-core-fn-indent-as-defun))
+
 (use-package clojure-mode
   :init (progn
           (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
           (add-hook 'cider-repl-mode-hook 'pretty-mode)
           (setq cider-repl-use-clojure-font-lock t)
-          (dg-set-om-indent-rules)))
+          (dg-set-om-indent-rules)
+          (dg-set-coreclj-indent-rules)))
 
 (provide 'dg-clojure)
 ;;; clojure.el ends here
