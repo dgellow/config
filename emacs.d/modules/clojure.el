@@ -32,11 +32,142 @@
 ;; SOFTWARE.
 
 ;;; Code:
+(defvar dg-list-om-dom-tags
+  '(a
+    abbr
+    address
+    area
+    article
+    aside
+    audio
+    b
+    base
+    bdi
+    bdo
+    big
+    blockquote
+    body
+    br
+    button
+    canvas
+    caption
+    cite
+    code
+    col
+    colgroup
+    data
+    datalist
+    dd
+    del
+    dfn
+    div
+    dl
+    dt
+    em
+    embed
+    fieldset
+    figcaption
+    figure
+    footer
+    form
+    h1
+    h2
+    h3
+    h4
+    h5
+    h6
+    head
+    header
+    hr
+    html
+    i
+    iframe
+    img
+    ins
+    kbd
+    keygen
+    label
+    legend
+    li
+    link
+    main
+    map
+    mark
+    marquee
+    menu
+    menuitem
+    meta
+    meter
+    nav
+    noscript
+    object
+    ol
+    optgroup
+    output
+    p
+    param
+    pre
+    progress
+    q
+    rp
+    rt
+    ruby
+    s
+    samp
+    script
+    section
+    select
+    small
+    source
+    span
+    strong
+    style
+    sub
+    summary
+    sup
+    table
+    tbody
+    td
+    tfoot
+    th
+    thead
+    time
+    title
+    tr
+    track
+    u
+    ul
+    var
+    video
+    wbr
+
+    ;; svg
+    circle
+    ellipse
+    g
+    line
+    path
+    polyline
+    rect
+    svg
+    text
+    defs
+    linearGradient
+    polygon
+    radialGradient
+    stop
+    tspan))
+
+(defun dg-set-om-indent-rules ()
+  "Fix the way functions from om.dom are indented."
+  (mapc (lambda (x) (put-clojure-indent x 1)) dg-list-om-dom-tags))
+
 (use-package clojure-mode
   :init (progn
           (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
           (add-hook 'cider-repl-mode-hook 'pretty-mode)
-          (setq cider-repl-use-clojure-font-lock t)))
+          (setq cider-repl-use-clojure-font-lock t)
+          (dg-set-om-indent-rules)))
 
 (provide 'dg-clojure)
 ;;; clojure.el ends here
