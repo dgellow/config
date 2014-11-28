@@ -139,7 +139,15 @@
     ul
     var
     video
-    wbr))
+    wbr
+
+    ;; other, from https://github.com/swannodette/om/blob/f9cd0ce959b17b903a78f5b9c79300291eba7b00/src/om/dom.cljs
+    input
+    textarea
+    option)
+  "Based on the list from om/dom.clj.
+
+Consulted version: https://github.com/swannodette/om/blob/4e4aa4ee560ad3a3ce7600ffbeb8a9ede144c333/src/om/dom.clj")
 
 (defun dg-set-om-indent-rules ()
   "Fix the way functions from om.dom are indented."
