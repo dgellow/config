@@ -65,5 +65,8 @@ Bound to M-N."
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
+;; Increase selection by semantic units
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (provide 'keybinding)
 ;;; keybinding.el ends here

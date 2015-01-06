@@ -12,6 +12,7 @@
 (depends-on "company-anaconda")
 (depends-on "dash")
 (depends-on "epl")
+(depends-on "expand-region")
 (depends-on "fill-column-indicator")
 (depends-on "findr")
 (depends-on "flx")
