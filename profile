@@ -68,4 +68,10 @@ export PIP_RESPECT_VIRTUALENV=true
 ##                   2.3 Node
 
 # NPM, global install in user directory
-export PATH=$HOME/.local/bin:$PATH
+export NPM_PACKAGES="${HOME}/.npm-packages"
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+export PATH="$NPM_PACKAGES/bin:$PATH"
+
+# Unset manpath so we can inherit from /etc/manpath via `manpath`
+unset MANPATH # delete if you already modified MANPATH elsewhere
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
