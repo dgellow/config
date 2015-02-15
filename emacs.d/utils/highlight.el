@@ -33,7 +33,7 @@
 
 ;;; Code:
 ;; Symbol highlighting
-(defun  highlight-symbol-at-point ()
+(defun highlight-symbol-at-point ()
   "Highlight the SYMBOL at the cursor position."
   (interactive)
   (highlight-at-point 'symbol))
