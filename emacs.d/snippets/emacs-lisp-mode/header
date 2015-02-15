@@ -13,7 +13,7 @@
                                      finder-known-keywords))))
                      (yas-choose-value keywords))}
 
-;; This file is not port of GNU Emacs.
+;; This file is not part of GNU Emacs.
 
 ;;; Commentary:
 $6
