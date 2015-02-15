@@ -28,6 +28,7 @@
 (depends-on "ipython")
 (depends-on "jedi")
 (depends-on "jump")
+(depends-on "js2-mode")
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "multi-term")

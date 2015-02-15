@@ -32,8 +32,22 @@
 ;; SOFTWARE.
 
 ;;; Code:
+(defun dg-add-jsxhint-flycheck-checker ()
+  (progn
+    (flycheck-define-checker javascript-jsxhint
+      "A wrapper around JSHint supporting JSX syntax."
+
+      :command ("/home/sam/jsxhint-ignore-stderr" source)
+      :error-parser flycheck-parse-checkstyle
+      :modes (js-mode js2-mode js3-mode))
+    (add-to-list 'flycheck-checkers 'javascript-jsxhint)))
+
 (use-package flycheck
-  :init (add-hook 'after-init-hook 'global-flycheck-mode))
+  :init (progn
+          (add-hook 'after-init-hook 'global-flycheck-mode)
+          (dg-add-jsxhint-flycheck-checker)))
+
+
 
 (provide 'dg-flycheck)
 ;;; flycheck.el ends here
