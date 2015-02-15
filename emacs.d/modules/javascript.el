@@ -1,13 +1,13 @@
-;;; web.el --- Web-mode configuration.
+;;; javascript.el --- javasrcipt configuration.
 ;;
-;; Copyright (c) 2014 Samuel El-Borai
+;; Copyright (c) 2015 Samuel El-Borai
 ;;
 ;; Author: Samuel El-Borai <samuel.elborai@gmail.com>
 ;; URL: https://github.com/dgellow/home-bootstrapping/
 ;; Version: 1.0.0
 ;; Keywords: convenience
 
-;; This file is not port of GNU Emacs.
+;; This file is not part of GNU Emacs.
 
 ;;; Commentary:
 
@@ -32,12 +32,8 @@
 ;; SOFTWARE.
 
 ;;; Code:
-(use-package web-mode
-  :init
-  (progn
-    (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode)))
-  :config
-  (custom-set-variables '(web-mode-code-indent-offset 4)))
+(use-package js2-mode
+  :mode ("\\.jsx\\'" . js2-mode))
 
-(provide 'web)
-;;; web.el ends here
+(provide 'dg-javascript)
+;;; javascript.el ends here
