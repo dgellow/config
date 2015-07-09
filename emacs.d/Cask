@@ -33,6 +33,7 @@
 (depends-on "markdown-mode")
 (depends-on "multi-term")
 (depends-on "multiple-cursors")
+(depends-on "nim-mode")
 (depends-on "paredit")
 (depends-on "pkg-info")
 (depends-on "popup")
