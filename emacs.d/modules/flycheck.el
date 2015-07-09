@@ -32,6 +32,8 @@
 ;; SOFTWARE.
 
 ;;; Code:
+(require 'flycheck)
+
 (defun dg-add-jsxhint-flycheck-checker ()
   (progn
     (flycheck-define-checker javascript-jsxhint
@@ -42,12 +44,29 @@
       :modes (js-mode js2-mode js3-mode))
     (add-to-list 'flycheck-checkers 'javascript-jsxhint)))
 
+(defun dg-add-typeflow-flycheck-checker ()
+  (progn
+    (flycheck-define-checker javascript-typeflow
+      "A javascript syntax and style checker using Facebook's Flow."
+      :command ("flow" source-original)
+      :error-patterns
+      ((error line-start
+              (file-name)
+              ":"
+              line
+              ":"
+              (minimal-match (one-or-more not-newline))
+              ":"
+              (message (minimal-match (and (one-or-more anything) "\n")))
+              line-end))
+      :modes (js-mode js2-mode js3-mode))
+    (flycheck-add-next-checker 'javascript-jsxhint 'javascript-typeflow)))
+
 (use-package flycheck
   :init (progn
           (add-hook 'after-init-hook 'global-flycheck-mode)
-          (dg-add-jsxhint-flycheck-checker)))
-
-
+          (dg-add-jsxhint-flycheck-checker)
+          (dg-add-typeflow-flycheck-checker)))
 
 (provide 'dg-flycheck)
 ;;; flycheck.el ends here
