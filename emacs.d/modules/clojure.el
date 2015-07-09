@@ -32,6 +32,8 @@
 ;; SOFTWARE.
 
 ;;; Code:
+(require 'clojure-mode)
+
 (defvar dg-list-om-dom-tags
   '(a
     abbr
