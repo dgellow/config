@@ -33,7 +33,7 @@
 
 ;;; Code:
 (use-package js2-mode
-  :mode ("\\.jsx\\'" . js2-mode))
+  :mode ("\\.jsx?\\'" . js2-mode))
 
 (provide 'dg-javascript)
 ;;; javascript.el ends here
