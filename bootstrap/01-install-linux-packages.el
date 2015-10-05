@@ -113,7 +113,7 @@
  (dg-archlinux-p (dg-set-archlinux-packages)))
 
 ;; Install
-(if dg-current-linux
+(if (and linux-p dg-current-linux)
   (dg-linux-packages-install)
   (error "Current linux system cannot be identified"))
 
