@@ -113,9 +113,10 @@
  (dg-archlinux-p (dg-set-archlinux-packages)))
 
 ;; Install
-(if (and linux-p dg-current-linux)
-  (dg-linux-packages-install)
-  (error "Current linux system cannot be identified"))
+(when linux-p
+  (if dg-current-linux
+      (dg-linux-packages-install)
+    (error "Current linux system cannot be identified")))
 
 (provide 'dg-install-linux-packages)
 ;;; install-linux-packages.el ends here
