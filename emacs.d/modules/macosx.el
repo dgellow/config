@@ -40,5 +40,10 @@
                       :height 130
                       :weight 'normal))
 
+;; Ensure environment variables in emacs is the same as in my shell
+;; Depends on [exec-path-from-shell](https://github.com/purcell/exec-path-from-shell)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
 (provide 'dg-macosx)
 ;;; macosx.el ends here

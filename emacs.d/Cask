@@ -13,6 +13,7 @@
 (depends-on "dash")
 (depends-on "epl")
 (depends-on "expand-region")
+(depends-on "exec-path-from-shell")
 (depends-on "fill-column-indicator")
 (depends-on "findr")
 (depends-on "flx")
