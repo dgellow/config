@@ -38,6 +38,8 @@ export PATH=/usr/local/heroku/bin:$PATH
 # Cask (emacs plugin management)
 export PATH=$HOME/.cask/bin:$PATH
 
+# Homebrew (mac os x package management)
+export PATH=/usr/local/bin:$PATH
 
 ##————————————————————————————————————————————————————————————————————
 ##                   2. Programming
