@@ -9,6 +9,9 @@
 
 source $HOME/.profile
 
+# Accept comments in command line
+setopt interactivecomments
+
 ##————————————————————————————————————————————————————————————————————
 ##                   1. Oh-my-zsh
 
