@@ -28,6 +28,9 @@ hilite () {
     source-highlight --out-format=esc --output=STDOUT --src-lang=$lang
 }
 
+# Set `less` encoding
+export LESSCHARSET=utf-8
+
 
 ##————————————————————————————————————————————————————————————————————
 ##                   1. Utilities
