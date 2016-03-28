@@ -5,5 +5,11 @@
 	default = simple
 [core]
 excludesfile = /home/sam/.gitignore_global
+	pager = diff-so-fancy | less --tabs=1,5 -R
 [pull]
 	rebase = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
