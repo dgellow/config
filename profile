@@ -85,4 +85,10 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 ##                   2.4 Nim
 
 # Add Nimble binaries to PATH
-export PATH="/home/sam/.nimble/bin:$PATH"
+export PATH="$HOME/.nimble/bin:$PATH"
+
+##————————————————————————————————————————————————————————————————————
+##                   2.4 Rust
+
+# Add Cargo binaries to PATH
+export PATH="$HOME/.cargo/bin:$PATH"
