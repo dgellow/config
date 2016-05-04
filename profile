@@ -7,6 +7,9 @@
 ##————————————————————————————————————————————————————————————————————
 ##                   0. Meta
 
+export LANG="en_US"
+export LC_ALL=$LANG.UTF-8
+
 # Aliases
 alias q='exit'
 alias :q='exit'
