@@ -152,14 +152,23 @@
 Consulted version: https://github.com/swannodette/om/blob/4e4aa4ee560ad3a3ce7600ffbeb8a9ede144c333/src/om/dom.clj")
 
 (defun dg-set-om-indent-rules ()
-  "Fix the way functions from om.dom are indented."
+  "Fix the way functions from om.dom and om.next are indented."
+  (define-clojure-indent
+    (defui 1)
+    (render 1)
+    (add-root! 1)
+    (query 1)
+    (ident 1)
+    (transact! 1))
+  ;; DOM tags indentation
   (mapc (lambda (x) (put-clojure-indent x 'defun)) dg-list-om-dom-tags))
 
 (defvar dg-list-clj-core-fn-indent-as-defun
   '(apply))
 
 (defun dg-set-coreclj-indent-rules ()
-  (mapc (lambda (x) (put-clojure-indent x 'defun)) dg-list-clj-core-fn-indent-as-defun))
+  (mapc (lambda (x) (put-clojure-indent x 'defun))
+        dg-list-clj-core-fn-indent-as-defun))
 
 (use-package clojure-mode
   :init (progn
