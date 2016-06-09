@@ -175,6 +175,7 @@ Consulted version: https://github.com/swannodette/om/blob/4e4aa4ee560ad3a3ce7600
           (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
           (add-hook 'cider-repl-mode-hook 'pretty-mode)
           (setq cider-repl-use-clojure-font-lock t)
+          (setq cider-repl-display-help-banner nil)
           (dg-set-om-indent-rules)
           (dg-set-coreclj-indent-rules)))
 
