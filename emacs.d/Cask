@@ -19,8 +19,6 @@
 (depends-on "flx")
 (depends-on "flx-ido")
 (depends-on "flycheck")
-(depends-on "git-commit-mode")
-(depends-on "git-rebase-mode")
 (depends-on "haml-mode")
 (depends-on "highlight")
 (depends-on "impatient-mode")
