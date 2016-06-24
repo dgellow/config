@@ -48,15 +48,23 @@
 (show-paren-mode 1)
 
 ;; Minimize margins
-(fringe-mode '(1 . 0))
+(when (boundp 'fringe-mode)
+  (fringe-mode '(1 . 0)))
 
 ;; Prettier mode-line
 (use-package powerline
   :config (powerline-default-theme))
 
 ;; Set fonts
-(defvar dg-default-font "-unknown-Droid Sans Mono-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1"
-  "Default font when using a graphic environment.")
+(defvar dg-default-font nil "Default font when using a graphic environment.")
+(setq dg-default-font
+      '(:family "Input Mono"
+                :background "#2B303B"
+                :foreground "#C0C5CE"
+                :slant normal
+                :weight thin
+                :height 130
+                :width normal))
 
 ;; Set custom theme path
 (setq custom-theme-directory
@@ -66,17 +74,17 @@
 (defun use-default-theme ()
   "Set dgellow's default theme."
   (interactive)
-  (dg-message "Load default theme.")
+  ;; (dg-message "Load default theme.")
   (disable-theme 'faceless)
   (load-theme 'octopussy t)
   (when (boundp 'dg-default-font)
-    (set-face-attribute 'default nil :font dg-default-font)))
+    (custom-set-faces `(default ((t ,dg-default-font))))))
 
 ;; Terminal theme
 (defun use-terminal-theme ()
   "Set dgellow's theme when running Emacs in a terminal."
   (interactive)
-  (dg-message "Load terminal theme.")
+  ;; (dg-message "Load terminal theme.")
   (disable-theme 'octopussy)
   (load-theme 'faceless t))
 
