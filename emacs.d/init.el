@@ -97,10 +97,11 @@ Located under  ~/.emacs.d/modules/ .")
  ;; If there is more than one, they won't work right.
  '(cider-cljs-repl
    "(do (require 'weasel.repl.websocket) (cemerick.piggieback/cljs-repl (weasel.repl.websocket/repl-env :ip \"127.0.0.1\" :port 9001)))")
- '(exec-path
+ '(flycheck-clang-language-standard "c++14")
+ '(js-indent-level 2)
+ '(package-selected-packages
    (quote
-    ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9" "/Applications/Emacs.app/Contents/MacOS/libexec-x86_64-10_9" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/local/bin")))
- '(js2-basic-offset 2)
+    (yasnippet yaml-mode web-mode scss-mode rainbow-mode use-package rainbow-delimiters racer python-mode projectile powerline nim-mode markdown-mode js2-mode jedi irony go-mode flx-ido expand-region exec-path-from-shell diminish company-anaconda cider bind-key)))
  '(web-mode-code-indent-offset 4))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
