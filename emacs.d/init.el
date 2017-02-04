@@ -63,18 +63,12 @@ If `load-file-name' is empty, use the value of `current-buffer'."
 ;; No splash screen
 (setq inhibit-startup-screen t)
 
-;; Package management
-(dg-message "Load the package manager.")
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
-
-(require 'use-package)
-
 ;; Set paths
 (defvar dg-utils-dir
   (expand-file-name "utils" user-emacs-directory)
   "Directory containing utility functions.
 Located under ~/.emacs.d/utils/ .")
+
 (defvar dg-modules-dir
   (expand-file-name "modules" user-emacs-directory)
   "Directory containing modules configuration files.
