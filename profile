@@ -95,3 +95,12 @@ export PATH="$HOME/.nimble/bin:$PATH"
 
 # Add Cargo binaries to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
+
+##————————————————————————————————————————————————————————————————————
+##                   2.4 Golang
+
+# Set GOPATH for external packages
+export GOPATH="$HOME/Development/Go/gopath/"
+
+# Ensure directories exists
+mkdir -p $GOPATH/{pkg,src}
