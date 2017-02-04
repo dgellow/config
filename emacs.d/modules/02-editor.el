@@ -72,5 +72,12 @@
 ;; Extend search paths for apropos
 (setq apropos-do-all t)
 
+;; Use zsh
+(setenv "SHELL" "/bin/zsh")
+
+;; Load env variables from shell config
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
 (provide 'editor)
 ;;; editor.el ends here
