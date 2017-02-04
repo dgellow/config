@@ -7,8 +7,6 @@
 ##————————————————————————————————————————————————————————————————————
 ##                   0. Meta
 
-source $HOME/.profile
-
 # Accept comments in command line
 setopt interactivecomments
 
