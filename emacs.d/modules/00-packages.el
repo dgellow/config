@@ -53,6 +53,7 @@
     company
     company-anaconda
     dash
+    dockerfile-mode
     expand-region
     exec-path-from-shell
     flx
