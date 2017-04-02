@@ -100,7 +100,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ##                   2.4 Golang
 
 # Set GOPATH for external packages
-export GOPATH="$HOME/Development/Go/gopath/"
+export GOPATH="$HOME/Development/Go/gopath"
+
+# Add golang binaries to PATH
+export PATH="$GOPATH/bin:$PATH"
 
 # Ensure directories exists
 mkdir -p $GOPATH/{pkg,src}
