@@ -35,7 +35,8 @@
 (use-package web-mode
   :init
   (progn
-    (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode)))
+    (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.gohtml\\'" . web-mode)))
   :config
   (custom-set-variables '(web-mode-code-indent-offset 4)))
 
