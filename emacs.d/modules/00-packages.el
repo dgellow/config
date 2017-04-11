@@ -62,6 +62,7 @@
     go-mode
     irony
     jedi
+    jira-markup-mode
     js2-mode
     markdown-mode
     (:name nim-mode :pin melpa)
