@@ -66,6 +66,16 @@
                 :height 130
                 :width normal))
 
+(defvar dg-terminal-font nil "Terminal font.")
+(setq dg-terminal-font
+      '(:family "Input Mono"
+                :background "#1F1F1F"
+                :foreground "#DFDFDF"
+                :slant normal
+                :weight thin
+                :height 130
+                :width normal))
+
 ;; Set custom theme path
 (setq custom-theme-directory
   (expand-file-name "themes" user-emacs-directory))
@@ -86,12 +96,15 @@
   (interactive)
   ;; (dg-message "Load terminal theme.")
   (disable-theme 'octopussy)
-  (load-theme 'faceless t))
+  (load-theme 'faceless t)
+  (when (boundp 'dg-terminal-font)
+    (custom-set-faces `(default ((t ,dg-terminal-font))))))
 
 ;; Startup theme
 (defun set-startup-theme ()
   "Select a theme depending on the display mode Emacs has been run on (from a terminal or a graphic env)."
-  (if window-system (use-default-theme)
+  (interactive)
+  (if (display-graphic-p) (use-default-theme)
     (use-terminal-theme)))
 
 (set-startup-theme)
