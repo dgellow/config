@@ -64,7 +64,9 @@
     jedi
     jira-markup-mode
     js2-mode
+    magit
     markdown-mode
+    multi-term
     (:name nim-mode :pin melpa)
     powerline
     projectile
