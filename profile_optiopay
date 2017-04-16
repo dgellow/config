@@ -1,0 +1,2 @@
+export GIT_AUTHOR_NAME=$(git config user.name)
+export GIT_AUTHOR_EMAIL=$(git config user.email)

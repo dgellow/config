@@ -107,3 +107,7 @@ export PATH="$GOPATH/bin:$PATH"
 
 # Ensure directories exists
 mkdir -p $GOPATH/{pkg,src}
+
+##————————————————————————————————————————————————————————————————————
+##                   3 Optiopay
+. "$HOME/.profile_optiopay"
