@@ -83,8 +83,6 @@
 (defvar dg-default-font nil "Default font when using a graphic environment.")
 (setq dg-default-font
       '(:family "Input Mono"
-                :background "#1b1e23"
-                :foreground "#C0C5CE"
                 :slant normal
                 :weight thin
                 :height 130
@@ -93,8 +91,6 @@
 (defvar dg-terminal-font nil "Terminal font.")
 (setq dg-terminal-font
       '(:family "Input Mono"
-                :background "#1F1F1F"
-                :foreground "#DFDFDF"
                 :slant normal
                 :weight thin
                 :height 130

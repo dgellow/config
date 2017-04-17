@@ -21,15 +21,15 @@
  '(minibuffer-prompt ((t (:foreground "IndianRed1" :weight medium))))
  '(minibuffer-message ((t (:foreground "#ffffff"))))
 
- '(font-lock-keyword-face ((t (:foreground "#B48BA5"))))
- '(font-lock-type-face ((t (:foreground "#ECC97C"))))
- '(font-lock-constant-face ((t (:foreground "#A2BF8A"))))
+ '(font-lock-keyword-face ((t (:foreground "IndianRed1"))))
+ '(font-lock-type-face ((t (:foreground "gold"))))
+ '(font-lock-constant-face ((t (:foreground "IndianRed1"))))
  '(font-lock-variable-name-face ((t (:foreground "#BFC5CE"))))
  '(font-lock-builtin-face ((t (:foreground "#A8D881"))))
- '(font-lock-string-face ((t (:foreground "#A2BD84"))))
+ '(font-lock-string-face ((t (:foreground "DarkOliveGreen2"))))
  '(font-lock-comment-face ((t (:foreground "#65737F"))))
  '(font-lock-comment-delimiter-face ((t (:foreground "#65737F"))))
- '(font-lock-function-name-face ((t (:foreground "#8CA1B4"))))
+ '(font-lock-function-name-face ((t (:foreground "#82b1dc"))))
  '(font-lock-doc-string-face ((t (:foreground "#496B83"))))
 
 
