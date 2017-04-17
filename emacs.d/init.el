@@ -102,6 +102,7 @@ Located under  ~/.emacs.d/modules/ .")
  '(package-selected-packages
    (quote
     (magit multi-term systemd jira-markup-mode dockerfile-mode yasnippet yaml-mode web-mode scss-mode rainbow-mode use-package rainbow-delimiters racer python-mode projectile powerline nim-mode markdown-mode js2-mode jedi irony go-mode flx-ido expand-region exec-path-from-shell diminish company-anaconda cider bind-key)))
+ '(powerline-gui-use-vcs-glyph t)
  '(web-mode-code-indent-offset 4))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

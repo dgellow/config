@@ -1,8 +1,8 @@
 (deftheme faceless
-  "Author: dgellow 
+  "Author: dgellow
    Date: August 25 2013
    Url: https://gist.github.com/dgellow/6333525
- 
+
    Theme based on jasonm23's bubbleberry https://gist.github.com/jasonm23/3027622 ")
 
 (custom-theme-set-variables
@@ -31,7 +31,7 @@
  '(font-lock-comment-delimiter-face ((t (:foreground "#666688"))))
  '(font-lock-function-name-face ((t (:foreground "#3ca380"))))
  '(font-lock-doc-string-face ((t (:foreground "#496B83"))))
- 
+
  '(tooltip ((default nil) (nil nil)))
  '(next-error ((t (:inherit (region)))))
  '(query-replace ((t (:inherit (isearch)))))
@@ -39,14 +39,14 @@
  '(fixed-pitch ((t (:family "Monospace"))))
  '(variable-pitch ((t (:family "Sans Serif"))))
  '(escape-glyph ((t (:foreground "#FF6600"))))
- '(highlight ((((class color) (min-colors 88) (background light)) (:background "#003453")) 
+ '(highlight ((((class color) (min-colors 88) (background light)) (:background "#003453"))
 	      (((class color) (min-colors 88) (background dark)) (:background "#003450"))
-	      (((class color) (min-colors 16) (background light)) (:background "#003450")) 
-	      (((class color) (min-colors 16) (background dark)) (:background "#004560")) 
-	      (((class color) (min-colors 8)) (:foreground "#000000" :background "#00FF00")) 
+	      (((class color) (min-colors 16) (background light)) (:background "#003450"))
+	      (((class color) (min-colors 16) (background dark)) (:background "#004560"))
+	      (((class color) (min-colors 8)) (:foreground "#000000" :background "#00FF00"))
 	      (t (:inverse-video t))))
  '(shadow ((((class color grayscale) (min-colors 88) (background light)) (:foreground "#999999"))
-	   (((class color grayscale) (min-colors 88) (background dark)) (:foreground "#999999")) 
+	   (((class color grayscale) (min-colors 88) (background dark)) (:foreground "#999999"))
 	   (((class color) (min-colors 8) (background light)) (:foreground "#00ff00"))
 	   (((class color) (min-colors 8) (background dark)) (:foreground "#ffff00"))))
  '(trailing-whitespace ((((class color) (background light)) (:background "#ff0000"))
@@ -91,15 +91,15 @@
 
 
 
- '(powerline-active1 ((t (:inherit mode-line :background "gray21" :foreground "white")))) 
+ '(powerline-active1 ((t (:inherit mode-line :background "gray21" :foreground "white"))))
  '(powerline-active2 ((t (:inherit mode-line :background "gray46"))))
  '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "gray20" :foreground "white smoke"))))
  '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "gray46"))))
 
- '(mode-line ((t (:box nil :background "yellow green" :foreground "black"))))
+ '(mode-line ((t (:box "IndianRed1" :background "IndianRed1" :foreground "black"))))
  '(mode-line-buffer-id ((t (:weight normal))))
  '(mode-line-emphasis ((t (:weight normal :underline t))))
- '(mode-line-highlight ((t (:box nil)))) 
+ '(mode-line-highlight ((t (:box nil))))
  '(mode-line-inactive ((t (:box nil :foreground "#777777" :background "#303030"))))
 
  '(rainbow-delimiters-depth-2-face ((t (:foreground "green"))))

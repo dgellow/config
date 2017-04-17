@@ -53,13 +53,37 @@
 
 ;; Prettier mode-line
 (use-package powerline
-  :config (powerline-default-theme))
+  :config
+  (progn
+    (defun powerline-nano-theme ()
+      "Setup a nano-like mode-line."
+      (interactive)
+      (setq-default mode-line-format
+                    '("%e"
+                      (:eval
+                       (let* ((active (powerline-selected-window-active))
+                              (lhs (list (powerline-vc nil 'l)))
+                              (rhs (list (powerline-raw "")
+                                         (powerline-raw "%4l" nil 'l)
+                                         (powerline-raw ",")
+                                         (powerline-raw "%3c" nil 'r)
+                                         (if (buffer-modified-p) (powerline-raw " ⠾" nil 'r)
+                                           (powerline-raw "  " nil 'r))))
+                              (center (list (powerline-major-mode nil 'l)
+                                            (powerline-raw " - ")
+                                            (powerline-raw "%b" nil 'r))))
+                         (concat (powerline-render lhs)
+                                 (powerline-fill-center nil (/ (powerline-width center) 2.0))
+                                 (powerline-render center)
+                                 (powerline-fill nil (powerline-width rhs))
+                                 (powerline-render rhs)))))))
+    (powerline-nano-theme)))
 
 ;; Set fonts
 (defvar dg-default-font nil "Default font when using a graphic environment.")
 (setq dg-default-font
       '(:family "Input Mono"
-                :background "#2B303B"
+                :background "#1b1e23"
                 :foreground "#C0C5CE"
                 :slant normal
                 :weight thin

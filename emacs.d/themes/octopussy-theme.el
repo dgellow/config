@@ -12,13 +12,13 @@
 (custom-theme-set-faces
  'octopussy
 
- '(default ((t (:foreground "#C0C5CE" :background "#2B303B"))))
+ '(default ((t (:foreground "#C0C5CE" :background "#1b1e23"))))
  '(region ((t (:background "#705B44"))))
  '(cursor ((t (:background "#ffffff"))))
  '(fringe ((t (:background "#2f2f2f" :foreground "#ffffff"))))
  '(linum ((t (:background "#202020" :foreground "#2f2f2f" :box nil :height 100))))
 
- '(minibuffer-prompt ((t (:foreground "#9489C4" :weight bold))))
+ '(minibuffer-prompt ((t (:foreground "IndianRed1" :weight medium))))
  '(minibuffer-message ((t (:foreground "#ffffff"))))
 
  '(font-lock-keyword-face ((t (:foreground "#B48BA5"))))
@@ -118,11 +118,11 @@
  '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "gray20" :foreground "white smoke"))))
  '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "gray46"))))
 
- '(mode-line ((t (:box nil :background "yellow green" :foreground "black"))))
+ '(mode-line ((t (:box "IndianRed1" :foreground "black" :background "IndianRed1"))))
  '(mode-line-buffer-id ((t (:weight normal))))
  '(mode-line-emphasis ((t (:weight normal :underline t))))
  '(mode-line-highlight ((t (:box nil))))
- '(mode-line-inactive ((t (:box nil :foreground "#777777" :background "#303030"))))
+ '(mode-line-inactive ((t (:box "gray10" :foreground "#777777" :background "gray10"))))
 
  '(rainbow-delimiters-depth-2-face ((t (:foreground "maroon2"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "lawn green"))))
