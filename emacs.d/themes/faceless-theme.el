@@ -18,10 +18,10 @@
  '(fringe ((t (:background "#2f2f2f" :foreground "#ffffff"))))
  '(linum ((t (:background "#202020" :foreground "#2f2f2f" :box nil :height 100))))
 
- '(minibuffer-prompt ((t (:foreground "#9489C4" :weight bold))))
+ '(minibuffer-prompt ((t (:foreground "IndianRed1" :weight bold))))
  '(minibuffer-message ((t (:foreground "#ffffff"))))
 
- '(font-lock-keyword-face ((t (:foreground "#3ca380"))))
+ '(font-lock-keyword-face ((t (:foreground "IndianRed1"))))
  '(font-lock-type-face ((t (:foreground "steel blue"))))
  '(font-lock-constant-face ((t (:foreground "cadet blue"))))
  '(font-lock-variable-name-face ((t (:foreground "light blue"))))
