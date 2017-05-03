@@ -14,3 +14,5 @@ excludesfile = /home/sam/.gitignore_global
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+[url "git@github.com:"]
+	insteadOf = https://github.com/
