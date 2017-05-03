@@ -1,6 +1,7 @@
 [user]
-	name = dgellow
-	email = samuel.elborai@gmail.com
+	name = Samuel El-Borai
+	email = samuel.el-borai@optiopay.com
+	signingkey = 3812DE2CB6FD98A7
 [push]
 	default = simple
 [core]
