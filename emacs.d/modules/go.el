@@ -39,7 +39,9 @@
     (exec-path-from-shell-copy-env "GOPATH")))
 
 (use-package go-mode
-  :init (add-hook 'go-mode-hook #'dg-load-gopath))
+  :init
+  (add-hook 'go-mode-hook 'dg-load-gopath t)
+  (add-hook 'before-save-hook 'gofmt-before-save t))
 
 (provide 'dg-go)
 ;;; go.el ends here
