@@ -1,18 +1,18 @@
 [user]
 	name = Samuel El-Borai
-	email = samuel.el-borai@optiopay.com
-	signingkey = 3812DE2CB6FD98A7
+	email = samuel.elborai@gmail.com
 [push]
 	default = simple
 [core]
-excludesfile = /home/sam/.gitignore_global
-	pager = diff-so-fancy | less --tabs=1,5 -R
+        excludesfile = /home/sam/.gitignore_global
+        pager = diff-so-fancy | less --tabs=1,5 -R
 [pull]
-	rebase = true
+        rebase = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+        oldNormal = red bold
+        oldHighlight = red bold 52
+        newNormal = green bold
+        newHighlight = green bold 22
+
+[includeIf "gitdir/i:optiopay/"]
+        path = ~/.gitconfigwork
