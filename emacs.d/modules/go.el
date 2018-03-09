@@ -38,10 +38,25 @@
   (when (memq window-system '(mac ns))
     (exec-path-from-shell-copy-env "GOPATH")))
 
+(defun dg-use-company-go ()
+  "Only use company-go."
+    (progn
+      (set (make-local-variable 'company-backends) '(company-go))
+      (company-mode)))
+
+(use-package go-guru)
+(use-package go-rename)
+(use-package company-go
+  :init
+  (setq company-tooltip-limit 20)
+  (setq company-idle-delay .3)
+  (setq company-echo-delay 0))
 (use-package go-mode
   :init
-  (add-hook 'go-mode-hook 'dg-load-gopath t)
-  (add-hook 'before-save-hook 'gofmt-before-save t))
+  (setq gofmt-command "goimports")
+  (add-hook 'go-mode-hook #'dg-load-gopath)
+  (add-hook 'before-save-hook #'gofmt-before-save)
+  (add-hook 'go-mode-hook #'dg-use-company-go))
 
 (provide 'dg-go)
 ;;; go.el ends here
