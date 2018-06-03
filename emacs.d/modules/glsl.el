@@ -1,11 +1,11 @@
-;;; c-mode.el --- C/C++ configuration.
+;;; glsl.el --- GLSL shader language.
 ;;
-;; Copyright (c) 2016 Samuel El-Borai
+;; Copyright (c) 2018 Samuel El-Borai
 ;;
 ;; Author: Samuel El-Borai <samuel.elborai@gmail.com>
-;; URL: https://github.com/dgellow/
+;; URL: https://github.com/dgellow/config
 ;; Version: 1.0.0
-;; Keywords: c language
+;; Keywords: language
 
 ;; This file is not part of GNU Emacs.
 
@@ -33,14 +33,9 @@
 
 ;;; Code:
 
-;; Disabled for now as irony-mode throws errors when using derived
-;; modes (glsl-mode in my case).
-;;
-;; (use-package c-mode
-;;   :init (add-hook 'c-mode-hook 'irony-mode))
-;;
-;; (use-package c++-mode
-;;   :init (add-hook 'c++-mode-hook 'irony-mode))
+(use-package glsl-mode
+  :mode (("\\.tese\\'" . glsl-mode)
+         ("\\.tesc\\'" . glsl-mode)))
 
-(provide 'dg-c)
-;;; c-mode.el ends here
+(provide 'dg-glsl)
+;;; glsl.el ends here
