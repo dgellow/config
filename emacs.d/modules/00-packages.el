@@ -66,7 +66,6 @@
     go-rename
     irony
     jedi
-    jira-markup-mode
     js2-mode
     magit
     markdown-mode
