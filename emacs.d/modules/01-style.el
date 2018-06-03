@@ -44,6 +44,9 @@
 ;; Show lambda as the greek character
 ;; (add-hook 'prog-mode-hook 'pretty-mode)
 
+;; Smooth scrolling
+(pixel-scroll-mode)
+
 ;; Highlight matching parentheses
 (show-paren-mode 1)
 
