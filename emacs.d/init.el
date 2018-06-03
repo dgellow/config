@@ -55,7 +55,8 @@ If `load-file-name' is empty, use the value of `current-buffer'."
 
 (dg-message "Welcome in dgellow's Emacs flavour.")
 
-;; Turn off mouse interface early in startup to avoid momentary display
+;; Turn off mouse interface early during startup to avoid seeing it at
+;; all.
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
