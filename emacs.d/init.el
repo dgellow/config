@@ -95,8 +95,6 @@ Located under  ~/.emacs.d/modules/ .")
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cider-cljs-repl
-   "(do (require 'weasel.repl.websocket) (cemerick.piggieback/cljs-repl (weasel.repl.websocket/repl-env :ip \"127.0.0.1\" :port 9001)))")
  '(flycheck-clang-language-standard "c++14")
  '(js-indent-level 2)
  '(package-selected-packages
