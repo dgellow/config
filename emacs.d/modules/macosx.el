@@ -32,13 +32,16 @@
 ;; SOFTWARE.
 
 ;;; Code:
-;; Do not use right alt key as meta
 (when (eq system-type 'darwin)
+  ;; Do not use right alt key as meta
   (setq mac-right-option-modifier 'none)
   (set-face-attribute 'default nil
                       :family "Menlo"
                       :height 130
-                      :weight 'normal))
+                      :weight 'normal)
+  ;; Use macOS darkmode
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
 ;; Ensure environment variables in emacs is the same as in my shell
 ;; Depends on [exec-path-from-shell](https://github.com/purcell/exec-path-from-shell)
