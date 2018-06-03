@@ -41,7 +41,6 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-
 (package-install 'use-package)
 
 (defvar dg--default-pin-target 'melpa-stable)
@@ -52,6 +51,8 @@
     clojure-mode
     company
     company-anaconda
+    company-go
+    (:name company-glsl :pin melpa)
     dash
     dockerfile-mode
     expand-region
@@ -59,7 +60,10 @@
     flx
     flx-ido
     flycheck
+    (:name glsl-mode :pin melpa)
     go-mode
+    go-guru
+    go-rename
     irony
     jedi
     jira-markup-mode
@@ -77,6 +81,7 @@
     rust-mode
     s
     scss-mode
+    slime
     web-mode
     yaml-mode
     yasnippet))
