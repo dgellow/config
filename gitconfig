@@ -1,6 +1,3 @@
-[user]
-	name = Samuel El-Borai
-	email = samuel.elborai@gmail.com
 [push]
 	default = simple
 [core]
@@ -14,5 +11,8 @@
         newNormal = green bold
         newHighlight = green bold 22
 
+[includeIf "gitdir/i:dgellow/"]
+	path = ~/.gitconfig-personal
+
 [includeIf "gitdir/i:optiopay/"]
-        path = ~/.gitconfigwork
+        path = ~/.gitconfig-work
