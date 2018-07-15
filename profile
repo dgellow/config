@@ -17,7 +17,7 @@ alias visudo='sudo -E visudo'
 alias cdgit='cd $(git rev-parse --show-cdup)'
 
 # Main editor
-export EDITOR="emacs -nw"
+export EDITOR="emacsclient -nw"
 
 # 256 colors terminals
 export TERM=xterm-256color
