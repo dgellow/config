@@ -66,9 +66,12 @@
 (defvar dg-linux-unknown-p nil)
 
 (defvar dg-current-linux
-  (let* ((etc-issue (with-temp-buffer
-                      (insert-file-contents "/etc/issue")
-                      (buffer-string))))
+  (let* ((etc-issue
+          (if (file-exists-p "/etc/issue")
+              (with-temp-buffer
+                (insert-file-contents "/etc/issue")
+                (buffer-string))
+            "")))
     (cond ((string-match "arch linux" etc-issue)
            (setq dg-archlinux-p t)
            (assoc "archlinux" dg-linux-distrib-alist))
