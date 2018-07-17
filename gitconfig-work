@@ -3,8 +3,6 @@
         email = samuel.el-borai@optiopay.com
         signingkey = 3812DE2CB6FD98A7
 
-[url "git@github.com:"]
-        insteadOf = https://github.com/
 [gpg]
 	program = /usr/local/bin/gpg
 [commit]
