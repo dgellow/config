@@ -1,7 +1,7 @@
 (deftheme octopussy
   "Author: Samuel El-Borai aka dgellow
    Date: January 2 2014
-   Url: https://github.com/dgellow/home-bootstrapping/tree/master/emacs.d/themes
+   Url: https://github.com/dgellow/config/tree/master/emacs.d/themes
 
    Theme based on kkga's spacegray https://github.com/kkga/spacegray")
 

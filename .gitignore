@@ -7,6 +7,3 @@
 !/emacs.d/modules/
 !/emacs.d/vendor/
 !/emacs.d/init.el
-
-# Boot-clj
-/boot/cache

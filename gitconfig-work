@@ -1,11 +1,11 @@
-[user]
-        name = Samuel El-Borai
-        email = samuel.el-borai@optiopay.com
-        signingkey = 3812DE2CB6FD98A7
-
-[gpg]
-	program = /usr/local/bin/gpg
-[commit]
-	gpgsign = true
-[credential]
-	helper = osxkeychain
+# [user]
+# name = Samuel El-Borai
+# email = <REPLACE_ME>
+# signingkey = <REPLACE_ME>
+#
+# [gpg]
+# program = /usr/local/bin/gpg
+# [commit]
+# gpgsign = true
+# [credential]
+# helper = osxkeychain

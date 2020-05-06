@@ -1,9 +1,8 @@
 ! File: .Xmodmap
-! Author: Samuel El-Borai aka dgellow <samuel.elborai@gmail.com>
-! Creation: January 2014
+! Author: Samuel El-Borai <samuel.elborai@gmail.com>
+! Creation Date: January 2014
 ! Description:
-!   Adaptation I made to the bépo layout to improve my feeling when
-!   programming.
+!   bepow - My personal keyboard layout
 
 ! Modifiers
 keycode 66 = Control_L

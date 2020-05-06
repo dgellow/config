@@ -1,7 +1,7 @@
 # File: .zshrc
-# Creation: 2013
-# Author: Samuel El-Borai aka dgellow <samuel.elborai@gmail.com>
-# Website: https://github.com/dgellow/home-bootstrapping
+# Creation Date: 2013
+# Author: Samuel El-Borai <samuel.elborai@gmail.com>
+# Website: https://github.com/dgellow/config
 # Description: My zshrc
 
 ##————————————————————————————————————————————————————————————————————
@@ -18,6 +18,3 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Load oh-my-zshrc configuration.
 source $ZSH/oh-my-zshrc
-
-# Load fuzzy finder
-source ~/.fzf.zsh

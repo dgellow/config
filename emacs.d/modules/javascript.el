@@ -3,7 +3,7 @@
 ;; Copyright (c) 2015 Samuel El-Borai
 ;;
 ;; Author: Samuel El-Borai <samuel.elborai@gmail.com>
-;; URL: https://github.com/dgellow/home-bootstrapping/
+;; URL: https://github.com/dgellow/config/
 ;; Version: 1.0.0
 ;; Keywords: convenience
 
