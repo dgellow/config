@@ -1,6 +1,6 @@
 # File: .profile
 # Creation Date: 2013
-# Author: Samuel El-Borai <samuel.elborai@gmail.com>
+# Author: Samuel El-Borai <sam@elborai.me>
 # Website: https://github.com/dgellow/config
 # Description: My sh environment
 

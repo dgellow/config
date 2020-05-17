@@ -2,7 +2,7 @@
 ;;
 ;; Copyright (c) 2018 Samuel El-Borai
 ;;
-;; Author: Samuel El-Borai <samuel.elborai@gmail.com>
+;; Author: Samuel El-Borai <sam@elborai.me>
 ;; URL: https://github.com/dgellow/config
 ;; Version: 1.0.0
 ;; Keywords: language
